@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Poppins&family=Roboto&display=swap');
+
+:root {
+  --header-h: 75px;
+  --aside-h: 100vh;
+  --aside-w: 270px;
+
+  /* Color */
+  --clr-purple: 107, 36, 240;
+  --clr-lightblue: 14, 165, 233;
+  --clr-blue: 2, 132, 199;
+  --clr-lightgray: 243, 244, 246;
+
+
+  /* Font Family */
+  --font-osw: 'Oswald', sans-serif;
+  --font-pops: 'Poppins', sans-serif;
+  --font-robt: 'Roboto', sans-serif;
+
+  /* Radius */
+  --radius-circle: 50%;
+  --radius-sm: 5px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+}
+* {
+  font-family: var(--font-robt);
+}
+
+/* ================= Main ================= */
+.main-content {
+  width: 100%;
+  margin-top: var(--header-h);
+}
+.main-content > * {
+  box-sizing: border-box;
+}
+.bg-content {
+  width: 100%;
+  height: 20vh;
+  background-color: rgba(var(--clr-lightblue), 1);
+}
+.card-content {
+  width: 100%;
+  height: 200vh;
+  margin-top: -20px;
+  background-color: rgba(var(--clr-lightgray), 1);
+  border-radius: 20px 20px 0 0;
+  padding: 15px;
+}
+.accordion {
+  width: 100%;
+
+}
+.accordion .contentBx {
+  position: relative;
+  margin: 10px 20px;
+}
+.accordion .contentBx .label {
+  position: relative;
+  padding: 10px;
+  background-color: #2464af;
+  color: white;
+  cursor: pointer;
+}
+.accordion .contentBx .label::before {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 1.5em;
+}
+.accordion .contentBx .label::before {
+  content: '-';
+}
+.accordion .contentBx .content {
+  height: 0;
+  position: relative;
+  padding: 0;
+  background-color: #fff;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.accordion .contentBx.active .content {
+  height: auto;
+  padding: 10px;
+}
