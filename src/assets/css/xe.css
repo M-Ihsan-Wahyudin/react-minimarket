@@ -40,11 +40,15 @@ button {
 .xe-text-gray-700{color: rgba(55, 65, 81, 1);}
 /* ================= Margin Property ================= */
 .xe-mx-1 {
-  margin: 0 1rem;
+  margin: 0 .5rem;
+}
+.xe-my-1 {
+  margin: .5rem 0;
 }
 /* ================= Overflow Property ================= */
 .xe-overflow-hidden {overflow: hidden;}
 /* ================= Display Property ================= */
+.xe-hidden {display: none;}
 .xe-flex {display: flex;}
 .xe-fixed {display: fixed;}
 /* ================= Flex Property ================= */

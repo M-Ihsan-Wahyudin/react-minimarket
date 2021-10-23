@@ -34,6 +34,7 @@ class Sidebar extends React.Component {
                   <div className="menu-title">
                     Home
                   </div>
+                  <i className='bx bx-chevron-down arrow-down-icon'></i>
                 </div>
                 <div className="menu-dropdown-child">
                   <div className="menu-item-child active">
@@ -140,7 +141,12 @@ class Sidebar extends React.Component {
               </div>
             </div>
             
-            <div className="menu-card"></div>
+            <div className="menu-card">
+              <div className="card-title"><strong>Free Template</strong></div>
+              <div className="card-body">
+                <button className="card-button xe-my-1">Docs</button>
+              </div>
+            </div>
           </div>
         </aside>
         <div className="aside-dark lg:xe-hidden" onClick={this.toggleAside} id="aside-dark"></div>

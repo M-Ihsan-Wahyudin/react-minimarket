@@ -14,7 +14,7 @@ class Header extends React.Component {
 
   toggleSearchBar = (e) => {
     let button = e.target.closest('div').querySelector('input');
-    button.classList.toggle('md:xe-hidden');
+    button.classList.toggle('xe-hidden');
   }
 
   toggleProfilePopover = (e) => {
@@ -46,7 +46,7 @@ class Header extends React.Component {
             <div className="header-menu-item menu-profile">
               <div className="header-right-side-wrapper">
                 <div className="search-bar">
-                  <input type="search" className="md:xe-hidden"/>
+                  <input type="search" className="xe-hidden" placeholder="Search"/>
                   <button className="search-bar-icon" onClick={this.toggleSearchBar}>
                     <i className='bx bx-search-alt xe-text-lg xe-text-white' ></i>
                   </button>
