@@ -1,10 +1,10 @@
-import { Fragment } from "react/cjs/react.production.min"
-import Dashboard from "./dashboard/dashboard"
+import { Fragment } from "react"
+import MainPage from "../layouts/index"
 
 const App = () => {
   return (
     <Fragment>
-      <Dashboard/>
+      <MainPage />
     </Fragment>
   )
 }

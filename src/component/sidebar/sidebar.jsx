@@ -1,6 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment, Component } from "react";
+import { NavLink } from "react-router-dom";
 
-class Sidebar extends React.Component {
+class Sidebar extends Component {
+
   toggleAside = () => {
     const aside = document.getElementById('aside');
     aside.classList.toggle('active');
@@ -11,74 +13,31 @@ class Sidebar extends React.Component {
   }
 
   menuDropdownToggle = (e) => {
+    e.preventDefault();
     e.target.closest('div.menu-dropdown-group').classList.toggle('active')
   }
-  
+
   render() {
     return (
       <Fragment>
-        <aside className="aside-container active" id="aside">
+        <aside className="aside-container text-gray-700 active" id="aside">
           <div className="aside-brand">
             <h2 className="xe-text-lg">Mini Market</h2>
           </div>
           <div className="menu-list">
+
             <div className="menu-group">
               <div className="menu-group-title">
                 <h3>Dashboard</h3>
               </div>
-              <div className="menu-dropdown-group active">
-                <div className="menu-item-parent active" onClick={this.menuDropdownToggle}>
-                  <div className="menu-icon">
-                    <i className='bx bx-home xe-text-md'></i>
-                  </div>
-                  <div className="menu-title">
-                    Home
-                  </div>
-                  <i className='bx bx-chevron-down arrow-down-icon'></i>
-                </div>
-                <div className="menu-dropdown-child">
-                  <div className="menu-item-child active">
-                    <div className="menu-icon">
-                      <span className="xe-text-sm">&#9679;</span>
-                    </div>
-                    <div className="menu-title">
-                      About US
-                    </div>
-                  </div>
-                  <div className="menu-item-child">
-                    <div className="menu-icon">
-                      <span className="xe-text-sm">&#9679;</span>
-                    </div>
-                    <div className="menu-title">
-                      Hoho
-                    </div>
-                  </div>
-                  <div className="menu-item-child">
-                    <div className="menu-icon">
-                      <span className="xe-text-sm">&#9679;</span>
-                    </div>
-                    <div className="menu-title">
-                      Tolol
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="menu-item">
+              <NavLink to="/dashboard" className="menu-item">
                 <div className="menu-icon">
-                  <i className='bx bx-trending-up xe-text-md'></i>
+                  <i className='bx bx-line-chart xe-text-md' ></i>
                 </div>
                 <div className="menu-title">
-                  Statistic
+                  Statistics
                 </div>
-              </div>
-              <div className="menu-item">
-                <div className="menu-icon">
-                  <i className='bx bx-doughnut-chart xe-text-md'></i>
-                </div>
-                <div className="menu-title">
-                  Diagram
-                </div>
-              </div>
+              </NavLink>
             </div>
 
             <div className="menu-group">
@@ -113,32 +72,53 @@ class Sidebar extends React.Component {
 
             <div className="menu-group">
               <div className="menu-group-title">
-                <h3>Product</h3>
+                <h3>Data</h3>
               </div>
-              <div className="menu-item">
+              <div className="menu-dropdown-group active">
+                <NavLink to="/product" className="menu-item-parent" onClick={this.menuDropdownToggle}>
+                  <div className="menu-icon">
+                    <i className='bx bx-cube xe-text-md'></i>
+                  </div>
+                  <div className="menu-title">
+                    Product
+                  </div>
+                  <i className='bx bx-chevron-down arrow-down-icon'></i>
+                </NavLink>
+                <div className="menu-dropdown-child">
+                  <NavLink to="/product/list" className="menu-item-child">
+                    <div className="menu-icon">
+                      <span className="xe-text-sm">&#9679;</span>
+                    </div>
+                    <div className="menu-title">
+                      List Product
+                    </div>
+                  </NavLink>
+                  <NavLink to="/product/new" className="menu-item-child">
+                    <div className="menu-icon">
+                      <span className="xe-text-sm">&#9679;</span>
+                    </div>
+                    <div className="menu-title">
+                      New Product
+                    </div>
+                  </NavLink>
+                  <NavLink to="/product/category" className="menu-item-child">
+                    <div className="menu-icon">
+                      <span className="xe-text-sm">&#9679;</span>
+                    </div>
+                    <div className="menu-title">
+                      Category
+                    </div>
+                  </NavLink>
+                </div>
+              </div>
+              <NavLink to="/pemasok" className="menu-item">
                 <div className="menu-icon">
-                  <i className='bx bx-list-check xe-text-md'></i>
+                  <i className='bx bxs-briefcase-alt-2 xe-text-md'></i>
                 </div>
                 <div className="menu-title">
-                  List Product
+                  Pemasok
                 </div>
-              </div>
-              <div className="menu-item">
-                <div className="menu-icon">
-                  <i className='bx bx-list-plus xe-text-md'></i>
-                </div>
-                <div className="menu-title">
-                  Add Product
-                </div>
-              </div>
-              <div className="menu-item">
-                <div className="menu-icon">
-                  <i className='bx bx-edit xe-text-md'></i>
-                </div>
-                <div className="menu-title">
-                  Edit Product
-                </div>
-              </div>
+              </NavLink>
             </div>
             
             <div className="menu-card">

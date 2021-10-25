@@ -4,13 +4,22 @@ import './index.css';
 import App from './views/App';
 import reportWebVitals from './reportWebVitals';
 
+// State Management
+import store from './store/index';
+import { Provider } from 'react-redux';
+
 // Vendors
 import "./assets/vendors/boxicons/css/boxicons.min.css"
 import "./assets/css/xe.css"
 
+// My Style
+import "./assets/css/dashboard.css"
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

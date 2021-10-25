@@ -1,5 +1,7 @@
 import React from "react"
+import { Link } from "react-router-dom";
 import people from "../../assets/images/people.jpg"
+import Breadcrumb from "../breadcrumb/breadcrumb";
 
 class Header extends React.Component {
 
@@ -29,7 +31,7 @@ class Header extends React.Component {
         <div className="header-menu">
           <div className="header-menu-item menu-brand">
             <div className="brand md:xe-hidden">
-              <h2 className="xe-text-lg">Mini Market</h2>
+              <h2 className="xe-text-lg font-bold text-gray-700">Mini Market</h2>
             </div>
             <div>
               <button className="aside-button" onClick={this.toggleAside}>
@@ -40,15 +42,13 @@ class Header extends React.Component {
             </div>
           </div>
           <div className="header-menu-item-group">
-            <div className="header-menu-item md:xe-hidden">
-              <span className="xe-mx-1"><i className='bx bx-home xe-text-sm'></i> / Dashboard / Home</span>
-            </div>
+            <Breadcrumb />
             <div className="header-menu-item menu-profile">
               <div className="header-right-side-wrapper">
                 <div className="search-bar">
                   <input type="search" className="xe-hidden" placeholder="Search"/>
                   <button className="search-bar-icon" onClick={this.toggleSearchBar}>
-                    <i className='bx bx-search-alt xe-text-lg xe-text-white' ></i>
+                    <i className='bx bx-search xe-text-lg xe-text-white' ></i>
                   </button>
                 </div>
                 <div className="profile-bar" onClick={this.toggleProfilePopover}>
@@ -68,10 +68,12 @@ class Header extends React.Component {
                         </button>
                       </li>
                       <li>
-                        <button className="logout">
-                          <i className='bx bx-log-out'></i>
-                          <span>Logout</span>
-                        </button>
+                        <Link to="/">
+                          <button className="logout">
+                            <i className='bx bx-log-out'></i>
+                            <span>Logout</span>
+                          </button>
+                        </Link>
                       </li>
                     </ul>
                   </div>

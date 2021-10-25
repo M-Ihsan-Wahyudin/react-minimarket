@@ -31,6 +31,20 @@
   font-family: var(--font-robt);
 }
 
+
+/* ================= Input Number remove Arrow ================= */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 /* ================= Scrollbar ================= */
 /* width */
 .aside-container::-webkit-scrollbar {
@@ -60,13 +74,14 @@
   margin-top: var(--header-h);
   z-index: 1;
 }
-.main-bg::before {
+.main-bg::after {
   content: '';
   width: 100%;
   position: absolute;
   top: 0;
   height: 20vh;
   background-color: rgba(var(--clr-lightblue), 1);
+  box-shadow: inset 0px -10px 10px rgba(0, 0, 0, 20%);
   z-index: -99;
 }
 .main-content > * {
@@ -234,7 +249,7 @@
   align-items: center;
   gap: 2px;
   padding: 3px;
-  height: 30px;
+  height: 35px;
   border-radius: 5px;
   background-color: rgba(var(--clr-lightblue), 1);
 }
@@ -250,7 +265,7 @@
   display: flex;
   gap: 2px;
   padding: 3px;
-  height: 38px;
+  height: 45px;
   border: 2px solid rgba(var(--clr-lightblue), 1);
   background-color: rgba(var(--clr-gray), 10%);
   border-radius: 10px;
@@ -259,7 +274,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px;
+  padding: 10px 5px;
   background-color: rgba(var(--clr-lightblue), 1);
   border-radius: 5px;
 }
@@ -386,7 +401,7 @@
     background-color: white;
     box-sizing: border-box;
     padding: 0 20px;
-    transition-delay: .1s;
+    /* transition-delay: .1s; */
     transition-duration: .4s;
     transition-property: all;
     overflow-y: scroll;
@@ -456,7 +471,7 @@
     box-sizing: border-box;
     padding: 0 20px;
     padding-bottom: 20px;
-    transition-delay: .1s;
+    /* transition-delay: .1s; */
     transition-duration: .4s;
     transition-property: all;
     overflow-y: scroll;
