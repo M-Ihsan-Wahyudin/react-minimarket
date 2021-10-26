@@ -11,6 +11,9 @@ import PageNotFound from "../views/PageNotFound/PageNotFound"
 import ProductList from "../views/product/ProductList"
 import NewProduct from "../views/product/NewProduct"
 import Pemasok from "../views/pemasok/Pemasok"
+import Barang from "../views/barang/Barang"
+import Pembelian from "../views/transaksi/Pembelian"
+import Kategori from "../views/kategori/Kategori"
 
 export default function Routes() {
   return (
@@ -18,19 +21,24 @@ export default function Routes() {
       <Route exact path="/" component={Login} />
       <Route path="/dashboard">
         <AdminLayout>
-          <Route exact path="/dashboard" component={Dashboard} />
+          <Route path="/dashboard" component={Dashboard} />
         </AdminLayout>
       </Route>
       <Route path="/product">
         <AdminLayout>
-          <Route path="/product/list" component={ProductList} />
-          <Route path="/product/new" component={NewProduct} />
+          <Route exact path="/product/list" component={ProductList} />
+          <Route exact path="/product/new" component={NewProduct} />
         </AdminLayout>
       </Route>
-      <AdminLayout>
-        <Route path="/pemasok" component={Pemasok} />
-      </AdminLayout>
-      <Route path="/*" component={PageNotFound} />
+      <Route path="/pemasok" >
+        <AdminLayout>
+          <Route path="/pemasok" component={Pemasok}/>
+        </AdminLayout>
+      </Route>
+      <Route path="/barang" component={Barang} />
+      <Route path="/kategori" component={Kategori} />
+      <Route path="/pembelian" component={Pembelian} />
+      <Route component={PageNotFound} />
     </Switch>
   )
 }

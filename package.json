@@ -46,6 +46,7 @@
   "devDependencies": {
     "autoprefixer": "^9",
     "postcss": "^7",
+    "sweetalert2": "^11.1.9",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }
 }

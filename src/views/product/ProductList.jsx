@@ -4,7 +4,7 @@ import axios from "axios";
 
 // Component
 import Table from "../../component/table/table";
-import { addNewProduct } from "../../store/features/product/productSlice";
+import { addProduct } from "../../store/features/product/productSlice";
 
 
 
@@ -29,7 +29,7 @@ class ProductList extends React.Component {
         }
       }).then(res => {
         console.info(res);
-        this.props.addNewProduct(res.data);
+        this.props.addProduct(res.data);
       }).catch(error => {
         console.info(error)
       })
@@ -74,7 +74,7 @@ const mapStateToProps = (state) => {
 
 const mapDispactToProps = (dispatch) => {
   return {
-    addNewProduct: (value) => dispatch(addNewProduct(value))
+    addProduct: (value) => dispatch(addProduct(value))
   }
 }
 

@@ -4,7 +4,7 @@ import { Fragment } from "react"
 import Header from "../component/header/header"
 import Sidebar from "../component/sidebar/sidebar"
 
-const Admin = (props) => {
+const AdminLayout = (props) => {
   return (
     <Fragment>
       <div className="dashboard-wrapper">
@@ -16,4 +16,4 @@ const Admin = (props) => {
   )
 }
 
-export default Admin;
+export default AdminLayout;

@@ -60,21 +60,21 @@ class Sidebar extends Component {
                   Refund
                 </div>
               </div>
-              <div className="menu-item">
+              <NavLink to="/pembelian" className="menu-item">
                 <div className="menu-icon">
                   <i className='bx bxs-credit-card xe-text-md'></i>
                 </div>
                 <div className="menu-title">
-                  Purchase
+                  Pembelian Stok
                 </div>
-              </div>
+              </NavLink>
             </div>
 
             <div className="menu-group">
               <div className="menu-group-title">
                 <h3>Data</h3>
               </div>
-              <div className="menu-dropdown-group active">
+              {/* <div className="menu-dropdown-group active">
                 <NavLink to="/product" className="menu-item-parent" onClick={this.menuDropdownToggle}>
                   <div className="menu-icon">
                     <i className='bx bx-cube xe-text-md'></i>
@@ -110,13 +110,29 @@ class Sidebar extends Component {
                     </div>
                   </NavLink>
                 </div>
-              </div>
+              </div> */}
               <NavLink to="/pemasok" className="menu-item">
                 <div className="menu-icon">
                   <i className='bx bxs-briefcase-alt-2 xe-text-md'></i>
                 </div>
                 <div className="menu-title">
                   Pemasok
+                </div>
+              </NavLink>
+              <NavLink to="/barang" className="menu-item">
+                <div className="menu-icon">
+                  <i className='bx bx-cube xe-text-md'></i>
+                </div>
+                <div className="menu-title">
+                  Barang
+                </div>
+              </NavLink>
+              <NavLink to="/kategori" className="menu-item">
+                <div className="menu-icon">
+                  <i className='bx bx-cube xe-text-md'></i>
+                </div>
+                <div className="menu-title">
+                  Kategori Barang
                 </div>
               </NavLink>
             </div>

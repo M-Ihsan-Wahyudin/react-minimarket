@@ -7,12 +7,12 @@ const Table = (props) => {
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
             <table className="min-w-full divide-y divide-gray-200 text-center">
-              <thead className="bg-gray-50">
+              <thead className="bg-gray-800">
                 <tr>
                   {
                     props.title.map((item, index) => {
                       return (
-                        <th scope="col" className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider" key={index} >
+                        <th scope="col" className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider" key={index} >
                           {item}
                         </th>
                       )
@@ -28,7 +28,7 @@ const Table = (props) => {
                   }
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-white divide-y divide-gray-300">
                 {props.children}
               </tbody>
             </table>

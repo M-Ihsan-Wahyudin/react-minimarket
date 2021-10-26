@@ -1,7 +1,41 @@
-import { Fragment } from "react"
-import { Link } from "react-router-dom";
+import { Fragment, useState } from "react"
+import axios from "axios"
+import Swal from "sweetalert2"
+import { useHistory } from "react-router";
 
-const Login = () => {
+export default function Login() {
+
+  const history = useHistory();
+
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const loginRequest = (e) => {
+    e.preventDefault()
+    const formData = new FormData(e.target)
+    axios.post('http://127.0.0.1:8000/api/login', formData)
+    .then(res => {
+      localStorage.setItem("jwt", res.data.token);
+      history.push('/dashboard');
+      showToast(res.data.message, 'success')
+    })
+    .catch(err => {
+      setErrorMessage(err.response.data.message)
+      showToast(errorMessage, 'error')
+    })
+  }
+
+  const showToast = (message, icon) => {
+    Swal.fire({
+      toast: true,
+      position: 'top-end',
+      icon: icon,
+      title: message,
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+    })
+  }
+
   return (
     <Fragment>
       <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-gray-100">
@@ -19,7 +53,7 @@ const Login = () => {
                 </a>
               </p>
             </div>
-            <form action="" method="post">
+            <form onSubmit={loginRequest} method="post">
               <section className="flex flex-col">
                 <span className="w-full text-sm my-2">
                   <label className="block text-gray-600 font-bold mb-1">Email Address</label>
@@ -43,12 +77,9 @@ const Login = () => {
                     </a>
                   </div>
                 </div>
-                <Link to="/dashboard" className="w-full bg-indigo-600 rounded-md py-2 px-4 text-white focus:ring focus:outline-none rounded-md text-center mt-5" autoFocus>
+                <button type="submit" className="w-full bg-indigo-600 rounded-md py-2 px-4 text-white focus:ring focus:outline-none rounded-md mt-5" autoFocus>
                   Sign In
-                </Link>
-                {/* <button type="submit" className="w-full bg-indigo-600 rounded-md py-2 px-4 text-white focus:ring focus:outline-none rounded-md" autoFocus>
-                  Sign In
-                </button> */}
+                </button>
               </section>
             </form>
           </div>
@@ -57,5 +88,3 @@ const Login = () => {
     </Fragment>
   )
 }
-
-export default Login;
