@@ -80,8 +80,7 @@ class Pemasok extends React.Component {
                 onClick={() => this.modalCreateRef.current.setOpenModal(true)} 
                 >
                   Tambah Pemasok
-                </
-              button>
+                </button>
               <input type="search" className="float-right px-3 py-2 rounded-md border border-indigo-500 focus:outline-none focus:ring" placeholder="Search" />
             </div>
             <TableComp title={this.state.title} srOnly={true}> 

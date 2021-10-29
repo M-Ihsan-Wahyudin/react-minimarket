@@ -44,22 +44,22 @@ class Sidebar extends Component {
               <div className="menu-group-title">
                 <h3>Transaction</h3>
               </div>
-              <div className="menu-item">
+              <NavLink to="/penjualan" className="menu-item">
                 <div className="menu-icon">
-                  <i className='bx bxl-paypal xe-text-md' ></i>
+                  <i className='bx bx-cart-alt xe-text-md' ></i>
                 </div>
                 <div className="menu-title">
-                  Payment
+                  Penjualan Barang
                 </div>
-              </div>
-              <div className="menu-item">
+              </NavLink>
+              {/* <div className="menu-item">
                 <div className="menu-icon">
                   <i className='bx bx-transfer-alt xe-text-md'></i>
                 </div>
                 <div className="menu-title">
                   Refund
                 </div>
-              </div>
+              </div> */}
               <NavLink to="/pembelian" className="menu-item">
                 <div className="menu-icon">
                   <i className='bx bxs-credit-card xe-text-md'></i>
@@ -113,7 +113,7 @@ class Sidebar extends Component {
               </div> */}
               <NavLink to="/pemasok" className="menu-item">
                 <div className="menu-icon">
-                  <i className='bx bxs-briefcase-alt-2 xe-text-md'></i>
+                  <i className='bx bx-window-open xe-text-md'></i>
                 </div>
                 <div className="menu-title">
                   Pemasok
@@ -129,10 +129,26 @@ class Sidebar extends Component {
               </NavLink>
               <NavLink to="/kategori" className="menu-item">
                 <div className="menu-icon">
-                  <i className='bx bx-cube xe-text-md'></i>
+                  <i className='bx bx-purchase-tag xe-text-md'></i>
                 </div>
                 <div className="menu-title">
                   Kategori Barang
+                </div>
+              </NavLink>
+              <NavLink to="/pelanggan" className="menu-item">
+                <div className="menu-icon">
+                  <i className='bx bx-id-card xe-text-md'></i>
+                </div>
+                <div className="menu-title">
+                  Pelanggan
+                </div>
+              </NavLink>
+              <NavLink to="/karyawan" className="menu-item">
+                <div className="menu-icon">
+                  <i className='bx bxs-group xe-text-md'></i>
+                </div>
+                <div className="menu-title">
+                  Karyawan
                 </div>
               </NavLink>
             </div>

@@ -14,6 +14,9 @@ import Pemasok from "../views/pemasok/Pemasok"
 import Barang from "../views/barang/Barang"
 import Pembelian from "../views/transaksi/Pembelian"
 import Kategori from "../views/kategori/Kategori"
+import Pelanggan from "../views/pelanggan/Pelanggan"
+import Karyawan from "../views/karyawan/Karyawan"
+import Penjualan from "../views/transaksi/Penjualan/Penjualan"
 
 export default function Routes() {
   return (
@@ -38,6 +41,9 @@ export default function Routes() {
       <Route path="/barang" component={Barang} />
       <Route path="/kategori" component={Kategori} />
       <Route path="/pembelian" component={Pembelian} />
+      <Route path="/penjualan" component={Penjualan} />
+      <Route path="/pelanggan" component={Pelanggan} />
+      <Route path="/karyawan" component={Karyawan} />
       <Route component={PageNotFound} />
     </Switch>
   )

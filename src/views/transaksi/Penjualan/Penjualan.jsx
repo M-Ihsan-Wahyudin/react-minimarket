@@ -1,11 +1,13 @@
 import React from "react"
-import Swal from "sweetalert2";
-import { connect } from "react-redux";
-import ModalSelectBarang from "./modal/ModalSelectBarang"
-import Table from "../../component/table/table";
-import AdminLayout from "../../layouts/Admin";
-import Pagination from "../pemasok/Pagination";
-import axios from "axios";
+import Swal from "sweetalert2"
+import { connect } from "react-redux"
+import ModalSelectBarang from "./Component/ModalSelectBarang"
+import axios from "axios"
+
+// Component
+import Table from "../../../component/table/table";
+import AdminLayout from "../../../layouts/Admin";
+import Pagination from "./Component/Pagination";
 
 class Pembelian extends React.Component {
   constructor(props) {
