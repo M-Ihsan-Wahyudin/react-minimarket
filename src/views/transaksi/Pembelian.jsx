@@ -1,11 +1,10 @@
 import React from "react"
-import Swal from "sweetalert2";
-import { connect } from "react-redux";
+import Swal from "sweetalert2"
+import { connect } from "react-redux"
 import ModalSelectBarang from "./modal/ModalSelectBarang"
-import Table from "../../component/table/table";
-import AdminLayout from "../../layouts/Admin";
-import Pagination from "../pemasok/Pagination";
-import axios from "axios";
+import Table from "../../component/table/table"
+import Pagination from "../pemasok/Pagination"
+import axios from "axios"
 
 class Pembelian extends React.Component {
   constructor(props) {
@@ -186,131 +185,129 @@ class Pembelian extends React.Component {
 
   render() {
     return (
-      <AdminLayout>
-        <main className="main-content main-bg">
-          <form onSubmit={this.storeData}>
-            <input type="hidden" name="total" value={this.state.totalBarang} />
-            <div className="p-5 md:p-10 w-full grid grid-cols-12 gap-5">
-              <div className="col-span-12 bg-white shadow rounded-md p-5">
-                <h1 className="text-2xl text-indigo-500 font-bold">Transaksi Pembelian</h1>
-              </div>
-              <div className="col-span-8 bg-white shadow rounded-md p-5 grid grid-cols-6 gap-3">
-                <div className="col-span-3">
-                  <label htmlFor="pemasok_id">Pemasok</label>
-                  <select 
-                    name="pemasok_id" 
-                    id="pemasok_id" 
-                    className={`w-full px-3 py-3 text-md border rounded-md focus:outline-none ${this.state.errors.pemasok_id ? `border-red-500` : `border-indigo-500`}`}
-                    onChange={(e) => this.handleSelectPemasok(e)} 
-                    defaultValue=""
-                  >
-                    <option disabled value=""> -- Pilih Pemasok -- </option>
-                    {
-                      this.props.pemasok.map(item => {
-                        return (
-                          <option key={item.id} value={item.id}>{item.nama_pemasok}</option>
-                        )
-                      })
-                    }
-                  </select>
-                </div>
-                <div className="col-span-3">
-                  <label htmlFor="tanggal_masuk">Tanggal Masuk</label>
-                  <input type="date" name="tanggal_masuk" id="tanggal_masuk" 
-                    className={`w-full px-3 py-2 text-md border rounded-md focus:outline-none ${this.state.errors.tanggal_masuk ? 'border-red-500' : 'border-indigo-500'}`} 
-                  />
-                </div>
-                <div className="col-span-3">
-                  <label htmlFor="no_telp">Nomor Telepon</label>
-                  <input type="text" name="no_telp" id="no_telp" className="w-full px-3 py-2 border rounded-md focus:outline-none border-indigo-500 bg-gray-50" disabled value={this.state.selectedPemasok.no_telp}/>
-                </div>
-                <div className="col-span-3">
-                  <label htmlFor="kota">Kota</label>
-                  <input type="text" name="kota" id="kota" className="w-full px-3 py-2 border rounded-md focus:outline-none border-indigo-500 bg-gray-50" disabled value={this.state.selectedPemasok.kota}/>
-                </div>
-                <div className="col-span-6">
-                  <label htmlFor="alamat">Alamat</label>
-                  <textarea name="alamat" id="alamat" className="w-full px-3 py-2 border rounded-md focus:outline-none border-indigo-500 resize-none bg-gray-50" disabled value={this.state.selectedPemasok.alamat}></textarea>
-                </div>
-              </div>
-              <div className="col-span-4 bg-white shadow rounded-md p-5 grid grid-cols-6 gap-3">
-                <div className="col-span-6">
-                  <label htmlFor="total">Total Barang</label>
-                  <input type="text" id="total" className={`w-full px-3 py-2 border rounded-md focus:outline-none border-indigo-500 bg-gray-50`} value={this.state.totalBarang} disabled />
-                </div>
-                <div className="col-span-6">
-                  <label htmlFor="totalHarga">Total Harga</label>
-                  <input type="text" name="totalHarga" id="totalHarga" className={`w-full px-3 py-2 border rounded-md focus:outline-none border-indigo-500 bg-gray-50`} value={this.state.totalHarga} disabled />
-                </div>
-                <div className="col-span-6 py-4"></div>
-                <div className="col-span-6">
-                  <button type="submit" className="float-right px-4 py-2 rounded-md text-white bg-indigo-500 focus:outline-none focus:ring">Save</button>
-                </div>
-              </div>
-              <div className="col-span-12 bg-white shadow rounded-md p-5">
-                  <button type="button" className="px-4 py-2 rounded-md bg-indigo-500 text-white my-2 focus:ring" onClick={() => this.modalSelectProductRef.current.setOpenModal(true)}>Tambah Barang</button>
-                <Table title={this.state.title} srOnly={true}>
+      <main className="main-content main-bg">
+        <form onSubmit={this.storeData}>
+          <input type="hidden" name="total" value={this.state.totalBarang} />
+          <div className="p-5 md:p-10 w-full grid grid-cols-12 gap-5">
+            <div className="col-span-12 bg-white shadow rounded-md p-5">
+              <h1 className="text-2xl text-indigo-500 font-bold">Transaksi Pembelian</h1>
+            </div>
+            <div className="col-span-8 bg-white shadow rounded-md p-5 grid grid-cols-6 gap-3">
+              <div className="col-span-3">
+                <label htmlFor="pemasok_id">Pemasok</label>
+                <select 
+                  name="pemasok_id" 
+                  id="pemasok_id" 
+                  className={`w-full px-3 py-3 text-md border rounded-md focus:outline-none ${this.state.errors.pemasok_id ? `border-red-500` : `border-indigo-500`}`}
+                  onChange={(e) => this.handleSelectPemasok(e)} 
+                  defaultValue=""
+                >
+                  <option disabled value=""> -- Pilih Pemasok -- </option>
                   {
-                    this.state.selectedBarang.map((item, index) => {
+                    this.props.pemasok.map(item => {
                       return (
-                        <tr key={index} className="hover:bg-gray-200">
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{index + 1}</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.nama_barang}</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.produk.nama_produk}</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                            <input 
-                              type="number" 
-                              name={`barang[${index}][harga_beli]`} 
-                              className={
-                                (!this.state.errors[`barang.${index}.harga_beli`]) ? 
-                                  `px-4 py-2 border rounded-md text-center focus:ring focus:outline-none` 
-                                : 
-                                  `px-4 py-2 border rounded-md text-center focus:ring focus:outline-none border-red-500`
-                                } 
-                              min={0}
-                            />
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                            <input 
-                              type="number" 
-                              name={`barang[${index}][harga_jual]`} 
-                              className={
-                                  `px-4 py-2 border rounded-md text-center focus:ring focus:outline-none ${this.state.errors[`barang.${index}.harga_jual`] ? 'border-red-500' : ''}` 
-                                }  
-                              min={0} 
-                              value={item.harga_jual} 
-                              onChange={(e) => this.countHargaJual(e,item.id)}
-                            />
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.satuan}</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                            <input type="hidden" name={`barang[${index}][barang_id]`} value={item.id} />
-                            <input type="number" name={`barang[${index}][jumlah]`} className="px-4 py-2 border rounded-md text-center focus:ring focus:outline-none" max={100} min={0} value={item.qty} onChange={(e) => this.countQty(e,item.id)}/>
-                          </td>
-                          <td className="px-6 py-4">
-                            <button type="button" onClick={() => this.removeItem(index)}>
-                              <i className='bx bx-trash text-red-500 text-lg'></i>
-                            </button>
-                          </td>
-                        </tr>
+                        <option key={item.id} value={item.id}>{item.nama_pemasok}</option>
                       )
                     })
                   }
-                </Table>
-                <Pagination/>
+                </select>
+              </div>
+              <div className="col-span-3">
+                <label htmlFor="tanggal_masuk">Tanggal Masuk</label>
+                <input type="date" name="tanggal_masuk" id="tanggal_masuk" 
+                  className={`w-full px-3 py-2 text-md border rounded-md focus:outline-none ${this.state.errors.tanggal_masuk ? 'border-red-500' : 'border-indigo-500'}`} 
+                />
+              </div>
+              <div className="col-span-3">
+                <label htmlFor="no_telp">Nomor Telepon</label>
+                <input type="text" name="no_telp" id="no_telp" className="w-full px-3 py-2 border rounded-md focus:outline-none border-indigo-500 bg-gray-50" disabled value={this.state.selectedPemasok.no_telp}/>
+              </div>
+              <div className="col-span-3">
+                <label htmlFor="kota">Kota</label>
+                <input type="text" name="kota" id="kota" className="w-full px-3 py-2 border rounded-md focus:outline-none border-indigo-500 bg-gray-50" disabled value={this.state.selectedPemasok.kota}/>
+              </div>
+              <div className="col-span-6">
+                <label htmlFor="alamat">Alamat</label>
+                <textarea name="alamat" id="alamat" className="w-full px-3 py-2 border rounded-md focus:outline-none border-indigo-500 resize-none bg-gray-50" disabled value={this.state.selectedPemasok.alamat}></textarea>
               </div>
             </div>
-          </form>
-    
-          <ModalSelectBarang
-            ref={this.modalSelectProductRef} 
-            onSuccess={(...value) => this.handleSuccess(value)} 
-            onError={(...value) => this.handleError(value)}
+            <div className="col-span-4 bg-white shadow rounded-md p-5 grid grid-cols-6 gap-3">
+              <div className="col-span-6">
+                <label htmlFor="total">Total Barang</label>
+                <input type="text" id="total" className={`w-full px-3 py-2 border rounded-md focus:outline-none border-indigo-500 bg-gray-50`} value={this.state.totalBarang} disabled />
+              </div>
+              <div className="col-span-6">
+                <label htmlFor="totalHarga">Total Harga</label>
+                <input type="text" name="totalHarga" id="totalHarga" className={`w-full px-3 py-2 border rounded-md focus:outline-none border-indigo-500 bg-gray-50`} value={this.state.totalHarga} disabled />
+              </div>
+              <div className="col-span-6 py-4"></div>
+              <div className="col-span-6">
+                <button type="submit" className="float-right px-4 py-2 rounded-md text-white bg-indigo-500 focus:outline-none focus:ring">Save</button>
+              </div>
+            </div>
+            <div className="col-span-12 bg-white shadow rounded-md p-5">
+                <button type="button" className="px-4 py-2 rounded-md bg-indigo-500 text-white my-2 focus:ring" onClick={() => this.modalSelectProductRef.current.setOpenModal(true)}>Tambah Barang</button>
+              <Table title={this.state.title} srOnly={true}>
+                {
+                  this.state.selectedBarang.map((item, index) => {
+                    return (
+                      <tr key={index} className="hover:bg-gray-200">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{index + 1}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.nama_barang}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.produk.nama_produk}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                          <input 
+                            type="number" 
+                            name={`barang[${index}][harga_beli]`} 
+                            className={
+                              (!this.state.errors[`barang.${index}.harga_beli`]) ? 
+                                `px-4 py-2 border rounded-md text-center focus:ring focus:outline-none` 
+                              : 
+                                `px-4 py-2 border rounded-md text-center focus:ring focus:outline-none border-red-500`
+                              } 
+                            min={0}
+                          />
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                          <input 
+                            type="number" 
+                            name={`barang[${index}][harga_jual]`} 
+                            className={
+                                `px-4 py-2 border rounded-md text-center focus:ring focus:outline-none ${this.state.errors[`barang.${index}.harga_jual`] ? 'border-red-500' : ''}` 
+                              }  
+                            min={0} 
+                            value={item.harga_jual} 
+                            onChange={(e) => this.countHargaJual(e,item.id)}
+                          />
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.satuan}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                          <input type="hidden" name={`barang[${index}][barang_id]`} value={item.id} />
+                          <input type="number" name={`barang[${index}][jumlah]`} className="px-4 py-2 border rounded-md text-center focus:ring focus:outline-none" max={100} min={0} value={item.qty} onChange={(e) => this.countQty(e,item.id)}/>
+                        </td>
+                        <td className="px-6 py-4">
+                          <button type="button" onClick={() => this.removeItem(index)}>
+                            <i className='bx bx-trash text-red-500 text-lg'></i>
+                          </button>
+                        </td>
+                      </tr>
+                    )
+                  })
+                }
+              </Table>
+              <Pagination/>
+            </div>
+          </div>
+        </form>
+  
+        <ModalSelectBarang
+          ref={this.modalSelectProductRef} 
+          onSuccess={(...value) => this.handleSuccess(value)} 
+          onError={(...value) => this.handleError(value)}
 
-            onSelectBarang={(id) => this.handleSelectBarang(id) }
-          />
-        </main>
-      </AdminLayout>
+          onSelectBarang={(id) => this.handleSelectBarang(id) }
+        />
+      </main>
     )
   }
 }

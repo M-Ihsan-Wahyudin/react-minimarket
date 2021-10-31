@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 // Component
 import Modal from "../../../component/modal/modal"
 
-const ModalCreate = forwardRef((props, ref) => {
+const ModalUpdate = forwardRef((props, ref) => {
 
   const product = useSelector(state => state.product.data)
   const [dataForm, setDataForm] = useState(
@@ -111,4 +111,4 @@ const ModalCreate = forwardRef((props, ref) => {
   )
 })
 
-export default ModalCreate;
+export default ModalUpdate;

@@ -6,9 +6,10 @@ import { addData } from "../../store/features/pemasok/pemasokSlice"
 
 // Component
 import TableComp from "../../component/table/table"
-import ModalCreate from "./modal/ModalCreate"
-import ModalUpdate from "./modal/ModalUpdate"
+import ModalCreate from "./Component/ModalCreate"
+import ModalUpdate from "./Component/ModalUpdate"
 import Pagination from "./Pagination"
+import ModalDelete from "./Component/ModalDelete"
 
 class Pemasok extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class Pemasok extends React.Component {
     }
     this.modalCreateRef = React.createRef();
     this.modalUpdateRef = React.createRef();
+    this.modalDeleteRef = React.createRef();
   }
 
   componentDidMount() {
@@ -97,7 +99,7 @@ class Pemasok extends React.Component {
                         <button onClick={() => this.modalUpdateRef.current.setOpenModal(true, item.id)}>
                           <i className='bx bxs-edit text-green-400 text-lg' ></i>
                         </button>
-                        <button>
+                        <button onClick={() => this.modalDeleteRef.current.setOpenModal(true, item.id)}>
                         <i className='bx bx-trash text-red-500 text-lg' ></i>
                         </button>
                       </td>
@@ -117,6 +119,11 @@ class Pemasok extends React.Component {
         />
         <ModalUpdate
           ref={this.modalUpdateRef} 
+          onSuccess={(...value) => this.handleSuccess(value)} 
+          onError={(...value) => this.handleError(value)} 
+        />
+        <ModalDelete
+          ref={this.modalDeleteRef}
           onSuccess={(...value) => this.handleSuccess(value)} 
           onError={(...value) => this.handleError(value)} 
         />

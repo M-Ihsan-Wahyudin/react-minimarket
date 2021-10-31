@@ -57,7 +57,7 @@ export default function Login() {
               <section className="flex flex-col">
                 <span className="w-full text-sm my-2">
                   <label className="block text-gray-600 font-bold mb-1">Email Address</label>
-                  <input type="email" name="email" id="email" className="border w-full p-2 rounded-md focus:outline-none focus:ring" autoFocus />
+                  <input type="text" name="email" id="email" className="border w-full p-2 rounded-md focus:outline-none focus:ring" autoFocus />
                   <small className="text-red-500"></small>
                 </span>
                 <span className="w-full text-sm my-2">

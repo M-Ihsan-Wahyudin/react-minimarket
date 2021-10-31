@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import ModalLarge from "../../../../component/modal/modalLarge";
 import Table from "../../../../component/table/table";
 
-const ModalCreate = forwardRef((props, ref) => {
+const ModalSelectBarang = forwardRef((props, ref) => {
 
   const [open, setOpen] = useState(false)
   const product = useSelector(state => state.product.data)
@@ -27,7 +27,7 @@ const ModalCreate = forwardRef((props, ref) => {
               return (
                 <tr key={item.id} className="hover:bg-gray-200">
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.nama_barang}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.nama_produk}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.produk.nama_produk}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.harga_jual}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.satuan}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.stok}</td>
@@ -46,4 +46,4 @@ const ModalCreate = forwardRef((props, ref) => {
   )
 })
 
-export default ModalCreate
+export default ModalSelectBarang
