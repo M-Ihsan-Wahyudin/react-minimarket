@@ -23,6 +23,7 @@ class Pembelian extends React.Component {
       },
       totalHarga: 0,
       totalBarang: 0,
+      tanggal_masuk: '',
       errors: [],
     }
 
@@ -33,29 +34,31 @@ class Pembelian extends React.Component {
     e.preventDefault();
     const formData = new FormData(e.target);
     const token = localStorage.getItem('jwt');
-    // for(let value of formData) {
-    //   console.info(value)
-    // }
-    axios({
-      method: 'POST',
-      baseURL: 'http://127.0.0.1:8000/api/transaction/purchase',
-      data: formData,
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    })
-    .then((res) => {
-      console.info(res)
-      this.showToast(res.data.message, 'success')
-      this.resetForm();
-    })
-    .catch((err) => {
-      console.info(err.response.data)
-      this.setState({
-        errors: err.response.data.errors
-      });
-      this.showToast(err.response.data.message, 'error')
-    })
+    for(let value of formData) {
+      console.info(value)
+    }
+    if(this.validation()) {
+      axios({
+        method: 'POST',
+        baseURL: 'http://127.0.0.1:8000/api/transaction/purchase',
+        data: formData,
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      .then((res) => {
+        console.info(res)
+        this.showToast(res.data.message, 'success')
+        this.resetForm();
+      })
+      .catch((err) => {
+        console.info(err.response.data)
+        this.setState({
+          errors: err.response.data.errors
+        });
+        this.showToast(err.response.data.message, 'error')
+      })
+    }
   }
   
   handleSelectBarang(id) {
@@ -168,6 +171,31 @@ class Pembelian extends React.Component {
     })
   }
 
+  showAlert(message, icon) {
+    Swal.fire({
+      icon: icon,
+      title: 'Oops...',
+      text: message,
+      confirmButtonText: 'Kembali'
+    })
+  }
+
+  validation() {
+    let pemasok = this.state.selectedPemasok.id
+    if(pemasok === '') {
+      this.showAlert('Pilih Pemasok dulu...!!!', 'warning')
+      return false
+    } else {
+      let barang = this.state.selectedBarang
+      if(barang.length === 0) {
+        this.showAlert('Pilih Barang dulu...!!!', 'warning')
+        return false
+      } else {
+        return true
+      }
+    }
+  }
+
   resetForm() {
     this.setState({
       selectedBarang: [],
@@ -179,6 +207,7 @@ class Pembelian extends React.Component {
       },
       totalHarga: 0,
       totalBarang: 0,
+      tanggal_masuk: '',
       errors: [],
     });
   }
@@ -216,6 +245,8 @@ class Pembelian extends React.Component {
                 <label htmlFor="tanggal_masuk">Tanggal Masuk</label>
                 <input type="date" name="tanggal_masuk" id="tanggal_masuk" 
                   className={`w-full px-3 py-2 text-md border rounded-md focus:outline-none ${this.state.errors.tanggal_masuk ? 'border-red-500' : 'border-indigo-500'}`} 
+                  onChange={(e) => this.setState({tanggal_masuk: e.target.value})}
+                  value={this.state.tanggal_masuk}
                 />
               </div>
               <div className="col-span-3">

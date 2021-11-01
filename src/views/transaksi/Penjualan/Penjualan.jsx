@@ -26,11 +26,18 @@ class Pembelian extends React.Component {
       diskon: 0,
       kembali: 0,
       grandtotal: 0,
+      tgl_faktur: '',
       errors: [],
     }
 
     this.modalSelectProductRef = React.createRef();
     this.ModalSelectPelangganRef = React.createRef();
+  }
+
+  componentDidMount() {
+    this.setState({
+      tgl_faktur: this.getCurrentDate()
+    })
   }
 
   storeData = (e) => {
@@ -256,6 +263,16 @@ class Pembelian extends React.Component {
     }
   }
 
+  getCurrentDate() {
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+
+    today = dd + '-' + mm + '-' + yyyy;
+    return today
+  }
+
   resetForm() {
     this.setState({
       selectedBarang: [],
@@ -265,6 +282,7 @@ class Pembelian extends React.Component {
       diskon: 0,
       kembali: 0,
       grandtotal: 0,
+      tgl_faktur: '',
       errors: [],
     });
   }
@@ -273,7 +291,7 @@ class Pembelian extends React.Component {
     return (
       <main className="main-content main-bg">
         <form onSubmit={this.storeData}>
-          <input type="hidden" name="kembali" value={this.state.kembali} readOnly/>
+          {/* <input type="hidden" name="kembali" value={this.state.kembali} readOnly/> */}
           <div className="p-5 md:p-10 w-full grid grid-cols-12 gap-5">
             <div className="col-span-12 bg-white shadow rounded-md p-5">
               <h1 className="text-2xl text-indigo-500 font-bold">Transaksi Penjualan</h1>
@@ -320,10 +338,14 @@ class Pembelian extends React.Component {
                 <label htmlFor="total_bayar">Total Bayar</label>
                 <input type="tel" pattern="[0-9]*" name="total_bayar" id="total_bayar" className={`w-full px-3 py-2 border rounded-md focus:outline-none border-indigo-500 `} value={this.state.total_bayar} onChange={(e) => this.countTotalBayar(e)} />
               </div>
-              {/* <div className="col-span-3">
+              <div className="col-span-3">
                 <label htmlFor="kembali">Kembalian</label>
                 <input type="text" name="kembali" id="kembali" className={`w-full px-3 py-2 border rounded-md focus:outline-none border-indigo-500 bg-gray-50`} value={this.state.kembali} readOnly/>
-              </div> */}
+              </div>
+              <div className="col-span-3">
+                <label htmlFor="tgl_faktur">Tanggal Transaksi</label>
+                <input type="text" name="tgl_faktur" id="tgl_faktur" className={`w-full px-3 py-2 border rounded-md focus:outline-none border-indigo-500 bg-gray-50`} value={this.state.tgl_faktur} readOnly/>
+              </div>
               <div className="col-span-6">
                 <button type="submit" className="float-right px-4 py-2 rounded-md text-white bg-indigo-500 focus:outline-none focus:ring">Save</button>
               </div>

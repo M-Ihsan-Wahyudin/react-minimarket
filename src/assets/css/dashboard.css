@@ -9,8 +9,10 @@
   --clr-black: #202020;
   --clr-white: #fff;
   --clr-purple: 107, 36, 240;
-  --clr-lightblue: 14, 165, 233;
-  --clr-blue: 2,132,199;
+  /* --clr-lightblue: 14, 165, 233; */
+  --clr-lightblue: 99, 102, 241;
+  /* --clr-blue: 2,132,199; */
+  --clr-blue: 99, 102, 241;
   --clr-lightgray: 243, 244, 246;
   --clr-gray: 156, 163, 175;
   --clr-darkgray: 31, 41, 55;

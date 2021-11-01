@@ -38,6 +38,7 @@ class Kategori extends React.Component {
       }
     })
     .then(res => {
+      console.info(res)
       this.props.addCategory(res.data);
     })
   }

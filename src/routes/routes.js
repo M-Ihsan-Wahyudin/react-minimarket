@@ -16,7 +16,8 @@ import Pelanggan from "../views/pelanggan/Pelanggan"
 import Karyawan from "../views/karyawan/Karyawan"
 import Penjualan from "../views/transaksi/Penjualan/Penjualan"
 import ProtectedRoute from "./ProtectedRoute"
-import LaporanPenjualan from "../views/laporan/Penjualan"
+import LaporanPenjualan from "../views/laporan/Penjualan/LaporanPenjualan"
+import LaporanPembelian from "../views/laporan/Pembelian/LaporanPembelian"
 
 export default function Routes() {
   return (
@@ -32,6 +33,7 @@ export default function Routes() {
         <Route exact path="/karyawan" component={Karyawan} />
         <ProtectedRoute exact path="/pemasok" component={Pemasok} level="Operator" />
         <Route exact path="/laporan/penjualan" component={LaporanPenjualan} />
+        <Route exact path="/laporan/pembelian" component={LaporanPembelian} />
       </AdminLayout>
       <Route path="/*" component={PageNotFound} />
     </Switch>
