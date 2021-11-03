@@ -8,6 +8,7 @@ import axios from "axios"
 // Component
 import Table from "../../../component/table/table"
 import Pagination from "./Component/Pagination"
+import Print from "./Component/Print"
 
 class Pembelian extends React.Component {
   constructor(props) {
@@ -57,7 +58,6 @@ class Pembelian extends React.Component {
         }
       })
       .then((res) => {
-        console.info(res)
         // this.showToast(res.data.message, 'success');
         Swal.fire({
           title: 'Transaksi Berhasil',
@@ -72,7 +72,11 @@ class Pembelian extends React.Component {
             cancelButtonText: 'Kembali',
             confirmButtonText: 'Cetak Struk',
             reverseButtons: true
-          });
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire('Saved!', '', 'success')
+            }
+          })
         })
         
         this.resetForm();
@@ -273,6 +277,10 @@ class Pembelian extends React.Component {
     return today
   }
 
+  printStruk(element) {
+    
+  }
+
   resetForm() {
     this.setState({
       selectedBarang: [],
@@ -379,8 +387,12 @@ class Pembelian extends React.Component {
               </Table>
               <Pagination/>
             </div>
+            <div className="col-span-12">
+              <Print/>
+            </div>
           </div>
         </form>
+
   
         <ModalSelectBarang
           ref={this.modalSelectProductRef} 

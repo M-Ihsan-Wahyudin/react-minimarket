@@ -45,7 +45,9 @@
   },
   "devDependencies": {
     "autoprefixer": "^9",
+    "chart.js": "^3.6.0",
     "postcss": "^7",
+    "react-chartjs-2": "^3.3.0",
     "sweetalert2": "^11.1.9",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }

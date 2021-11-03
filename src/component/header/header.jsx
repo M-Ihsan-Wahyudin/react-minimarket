@@ -48,7 +48,7 @@ function Header() {
       <div className="header-menu">
         <div className="header-menu-item menu-brand">
           <div className="brand md:xe-hidden">
-            <h2 className="xe-text-lg font-bold text-gray-700">Mini Market</h2>
+            <h2 className="text-2xl font-bold text-gray-700">Mini Market</h2>
           </div>
           <div>
             <button className="aside-button" onClick={toggleAside}>
