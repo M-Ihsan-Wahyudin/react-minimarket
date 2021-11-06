@@ -8,7 +8,7 @@ import TableComp from "../../component/table/table";
 import ModalCreate from "./Component/ModalCreate";
 import Pagination from "./Component/Pagination";
 import ModalUpdate from "./Component/ModalUpdate";
-import ModalDelete from "./Component/ModalDelete";
+// import ModalDelete from "./Component/ModalDelete";
 import client from "../../api/client";
 import Method from "../../Function/Method";
 import AdminLayout from "../../layouts/Admin";
@@ -101,7 +101,7 @@ class Kategori extends React.Component {
                           <button onClick={() => this.modalUpdateRef.current.setOpenModal(true, item.id)}>
                             <i className='bx bxs-edit text-green-400 text-lg' ></i>
                           </button>
-                          {
+                          {/* {
                             item.barang_count <= 0 ? 
                               <button onClick={() => this.modalDeleteRef.current.setOpenModal(true, item.id)}>
                                 <i className='bx bx-trash text-red-500 text-lg' ></i>
@@ -110,7 +110,7 @@ class Kategori extends React.Component {
                               <button onClick={() => Method.showAlert('Oops..', 'Kategori ini tidak dapat dihapus karena memiliki referensi ke barang lain', 'warning')}>
                                 <i className='bx bx-trash text-gray-500 text-lg' ></i>
                               </button>
-                          }
+                          } */}
                         </td>
                       </tr>
                     )
@@ -131,11 +131,11 @@ class Kategori extends React.Component {
             onSuccess={(...value) => this.handleSuccess(value)} 
             onError={(...value) => this.handleError(value)} 
           />
-          <ModalDelete
+          {/* <ModalDelete
             ref={this.modalDeleteRef} 
             onSuccess={(...value) => this.handleSuccess(value)} 
             onError={(...value) => this.handleError(value)} 
-          />
+          /> */}
         </main>
       </AdminLayout>
     )
