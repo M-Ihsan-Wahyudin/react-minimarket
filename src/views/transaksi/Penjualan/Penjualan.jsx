@@ -5,17 +5,17 @@ import ReactToPrint from "react-to-print"
 
 // Component
 import Table from "../../../component/table/table"
-import Pagination from "./Component/Pagination"
-import { Print } from "./Component/Print"
-import ModalSelectBarang from "./Component/ModalSelectBarang"
-import ModalSelectPelanggan from "./Component/ModalSelectPelanggan"
+import Pagination from "./component/pagination"
+import { Print } from "./component/print"
+import ModalSelectBarang from "./component/modalSelectBarang"
+import ModalSelectPelanggan from "./component/modalSelectPelanggan"
 
 // Function
-import Method from '../../../Function/Method'
+import Method from '../../../Function/method'
 
 // Client API
 import client from "../../../api/client"
-import AdminLayout from "../../../layouts/Admin"
+import AdminLayout from "../../../layouts/admin"
 
 class Pembelian extends React.Component {
   constructor(props) {

@@ -6,11 +6,11 @@ import { addPelanggan } from "../../store/features/pelanggan/pelangganSlice"
 
 // Component
 import TableComp from "../../component/table/table"
-import Pagination from "./Pagination"
-import ModalCreate from "./Component/ModalCreate"
-import ModalUpdate from "./Component/ModalUpdate"
-import ModalDelete from "./Component/ModalDelete"
-import AdminLayout from "../../layouts/Admin"
+import Pagination from "./pagination"
+import ModalCreate from "./component/modalCreate"
+import ModalUpdate from "./component/modalUpdate"
+import ModalDelete from "./component/modalDelete"
+import AdminLayout from "../../layouts/admin"
 
 class Pelanggan extends React.Component {
   constructor(props) {

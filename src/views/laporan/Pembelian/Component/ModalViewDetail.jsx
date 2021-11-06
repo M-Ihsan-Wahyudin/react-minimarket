@@ -2,7 +2,7 @@ import { forwardRef ,useImperativeHandle, useState } from "react"
 import { useSelector } from "react-redux"
 // Component
 import ModalLarge from "../../../../component/modal/modalLarge"
-import Table from "../../RootComponent/Table"
+import Table from "../../rootComponent/table"
 import logoputih from "../../../../assets/images/logoputih.svg"
 import './font.css'
 

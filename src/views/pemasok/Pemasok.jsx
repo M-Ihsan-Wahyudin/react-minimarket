@@ -5,11 +5,11 @@ import { addPemasok } from "../../store/features/pemasok/pemasokSlice"
 
 // Component
 import TableComp from "../../component/table/table"
-import ModalCreate from "./Component/ModalCreate"
-import ModalUpdate from "./Component/ModalUpdate"
-import Pagination from "./Pagination"
-import ModalDelete from "./Component/ModalDelete"
-import AdminLayout from "../../layouts/Admin"
+import ModalCreate from "./component/modalCreate"
+import ModalUpdate from "./component/modalUpdate"
+import Pagination from "./pagination"
+import ModalDelete from "./component/modalDelete"
+import AdminLayout from "../../layouts/admin"
 import client from "../../api/client"
 
 class Pemasok extends React.Component {

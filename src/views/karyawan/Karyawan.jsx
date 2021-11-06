@@ -6,10 +6,10 @@ import { addKaryawan } from "../../store/features/karyawan/karyawanSlice"
 
 // Component
 import TableComp from "../../component/table/table"
-import Pagination from "./Component/Pagination"
-import ModalCreate from "./Component/ModalCreate"
-import ModalDelete from "./Component/ModalDelete"
-import AdminLayout from "../../layouts/Admin"
+import Pagination from "./component/pagination"
+import ModalCreate from "./component/modalCreate"
+import ModalDelete from "./component/modalDelete"
+import AdminLayout from "../../layouts/admin"
 
 class Karyawan extends React.Component {
   constructor(props) {

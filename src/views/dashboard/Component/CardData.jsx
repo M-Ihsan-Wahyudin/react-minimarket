@@ -1,6 +1,6 @@
 import { Fragment } from "react"
 import { useSelector } from "react-redux";
-import Method from "../../../Function/Method";
+import Method from "../../../Function/method";
 
 export default function CardData() {
   const { data } = useSelector(state => state.laporan)

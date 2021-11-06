@@ -5,12 +5,12 @@ import { addProduct, addCategory } from "../../store/features/product/productSli
 
 // Component
 import TableComp from "../../component/table/table"
-import ModalCreate from "./modal/ModalCreate"
-import ModalUpdate from "./modal/ModalUpdate"
-import Pagination from "./Pagination"
-import ModalDelete from "./modal/ModalDelete"
+import ModalCreate from "./modal/modalCreate"
+import ModalUpdate from "./modal/modalUpdate"
+import Pagination from "./pagination"
+import ModalDelete from "./modal/modalDelete"
 import client from "../../api/client"
-import AdminLayout from "../../layouts/Admin"
+import AdminLayout from "../../layouts/admin"
 
 class Barang extends React.Component {
   constructor(props) {

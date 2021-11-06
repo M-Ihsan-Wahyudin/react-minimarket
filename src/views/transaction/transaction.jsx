@@ -1,5 +1,5 @@
 import { Link, useRouteMatch } from "react-router-dom";
-import AdminLayout from "../../layouts/Admin";
+import AdminLayout from "../../layouts/admin";
 
 const Transaction = () => {
   const { url } = useRouteMatch();

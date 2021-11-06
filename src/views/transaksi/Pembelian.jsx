@@ -3,10 +3,10 @@ import Swal from "sweetalert2"
 import { connect } from "react-redux"
 import ModalSelectBarang from "./modal/ModalSelectBarang"
 import Table from "../../component/table/table"
-import Pagination from "../pemasok/Pagination"
+import Pagination from "../pemasok/pagination"
 import client from "../../api/client"
-import Method from "../../Function/Method"
-import AdminLayout from "../../layouts/Admin"
+import Method from "../../Function/method"
+import AdminLayout from "../../layouts/admin"
 
 class Pembelian extends React.Component {
   constructor(props) {
