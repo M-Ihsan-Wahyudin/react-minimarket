@@ -9,7 +9,7 @@ import TableComp from "../../component/table/table"
 import Pagination from "./component/pagination"
 import ModalCreate from "./component/modalCreate"
 import ModalDelete from "./component/modalDelete"
-import AdminLayout from "../../layouts/admin"
+import AdminLayout from "../../layouts/Admin"
 
 class Karyawan extends React.Component {
   constructor(props) {

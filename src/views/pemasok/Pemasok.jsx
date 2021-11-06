@@ -9,7 +9,7 @@ import ModalCreate from "./component/modalCreate"
 import ModalUpdate from "./component/modalUpdate"
 import Pagination from "./pagination"
 import ModalDelete from "./component/modalDelete"
-import AdminLayout from "../../layouts/admin"
+import AdminLayout from "../../layouts/Admin"
 import client from "../../api/client"
 
 class Pemasok extends React.Component {

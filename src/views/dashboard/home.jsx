@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import AdminLayout from "../../layouts/admin";
+import AdminLayout from "../../layouts/Admin";
 
 const Home = () => {
   const userData = useSelector(state => state.userData.data);

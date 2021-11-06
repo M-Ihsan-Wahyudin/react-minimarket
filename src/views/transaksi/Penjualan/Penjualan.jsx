@@ -11,11 +11,11 @@ import ModalSelectBarang from "./component/modalSelectBarang"
 import ModalSelectPelanggan from "./component/modalSelectPelanggan"
 
 // Function
-import Method from '../../../Function/method'
+import Method from '../../../Function/Method'
 
 // Client API
 import client from "../../../api/client"
-import AdminLayout from "../../../layouts/admin"
+import AdminLayout from "../../../layouts/Admin"
 
 class Pembelian extends React.Component {
   constructor(props) {

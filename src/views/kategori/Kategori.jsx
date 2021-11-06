@@ -10,8 +10,8 @@ import Pagination from "./component/pagination";
 import ModalUpdate from "./component/modalUpdate";
 import ModalDelete from "./component/modalDelete";
 import client from "../../api/client";
-import Method from "../../Function/method";
-import AdminLayout from "../../layouts/admin";
+import Method from "../../Function/Method";
+import AdminLayout from "../../layouts/Admin";
 
 
 class Kategori extends React.Component {

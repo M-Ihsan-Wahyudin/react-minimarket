@@ -10,7 +10,7 @@ import ModalUpdate from "./modal/modalUpdate"
 import Pagination from "./pagination"
 import ModalDelete from "./modal/modalDelete"
 import client from "../../api/client"
-import AdminLayout from "../../layouts/admin"
+import AdminLayout from "../../layouts/Admin"
 
 class Barang extends React.Component {
   constructor(props) {

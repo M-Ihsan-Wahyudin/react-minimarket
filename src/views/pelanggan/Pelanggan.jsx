@@ -10,7 +10,7 @@ import Pagination from "./pagination"
 import ModalCreate from "./component/modalCreate"
 import ModalUpdate from "./component/modalUpdate"
 import ModalDelete from "./component/modalDelete"
-import AdminLayout from "../../layouts/admin"
+import AdminLayout from "../../layouts/Admin"
 
 class Pelanggan extends React.Component {
   constructor(props) {

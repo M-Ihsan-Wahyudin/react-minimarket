@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import ModalLarge from "../../../../component/modal/modalLarge";
 import Table from "../../rootComponent/table";
 import logoputih from "../../../../assets/images/logoputih.svg"
-import '../../pembelian/component/font.css'
+import '../../pembelian/Component/font.css'
 import Method from "../../../../Function/method";
 
 const ModalViewDetail = forwardRef((props, ref) => {

@@ -5,8 +5,8 @@ import ModalSelectBarang from "./modal/ModalSelectBarang"
 import Table from "../../component/table/table"
 import Pagination from "../pemasok/pagination"
 import client from "../../api/client"
-import Method from "../../Function/method"
-import AdminLayout from "../../layouts/admin"
+import Method from "../../Function/Method"
+import AdminLayout from "../../layouts/Admin"
 
 class Pembelian extends React.Component {
   constructor(props) {
