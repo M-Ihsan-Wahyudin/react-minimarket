@@ -64,7 +64,7 @@ function Header() {
             <div className="header-right-side-wrapper">
               <div className="search-bar">
                 <input type="search" className="xe-hidden" placeholder="Search"/>
-                <button className="search-bar-icon" onClick={toggleSearchBar}>
+                <button type="button" className="search-bar-icon" onClick={toggleSearchBar}>
                   <i className='bx bx-search xe-text-lg xe-text-white' ></i>
                 </button>
               </div>

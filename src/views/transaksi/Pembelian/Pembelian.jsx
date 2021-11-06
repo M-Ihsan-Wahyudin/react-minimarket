@@ -232,7 +232,7 @@ class Pembelian extends React.Component {
                     onChange={(e) => this.handleSelectPemasok(e)} 
                     defaultValue=""
                   >
-                    <option disabled value=""> -- Pilih Pemasok -- </option>
+                    <option disabled value="" id="option-disable"> -- Pilih Pemasok -- </option>
                     {
                       this.props.pemasok.map(item => {
                         return (

@@ -74,21 +74,6 @@ const ModalViewDetail = forwardRef((props, ref) => {
         </section>
         <section className="mx-10">
           <div className="p-5 bg-white -mt-16 rounded-md">
-            {/* <Table title={title} srOnly={false}>
-              {
-                selectedData.detail_penjualan.map(item => {
-                  return (
-                    <tr key={item.id} className="hover:bg-gray-200">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.barang.nama_barang}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.barang.produk.nama_produk}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.barang.harga_jual}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.barang.satuan}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.barang.stok}</td>
-                    </tr>
-                  )
-                })
-              }
-            </Table> */}
             <Table title={title} srOnly={false}>
               {
                 selectedData.detail_penjualan.map((item, index) => {
@@ -104,8 +89,8 @@ const ModalViewDetail = forwardRef((props, ref) => {
                   )
                 })
               }
-              <tr>
-                <td className="px-6 py-4 text-sm text-gray-900 font-bold" colSpan={3} rowSpan={4}>Thank you for your business</td>
+              <tr className="border-t border-gray-600">
+                <td className="px-6 py-4 text-sm text-gray-900" colSpan={3} rowSpan={4}></td>
                 <td className="px-6 py-4 text-sm text-gray-600">Sub total</td>
                 <td className="px-6 py-4 text-sm text-gray-600">:</td>
                 <td className="px-6 py-4 text-sm text-gray-600">{selectedData.tampung_bayar.total}</td>
@@ -116,7 +101,7 @@ const ModalViewDetail = forwardRef((props, ref) => {
                 <td className="px-6 py-4 text-sm text-gray-600">{selectedData.tampung_bayar.diskon}%</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 text-sm text-gray-600">Grandtotal</td>
+                <td className="px-6 py-4 text-white"><div className="w-full h-full rounded-md bg-gradient-to-r from-indigo-400 via-pink-500 to-red-500 text-sm">Grandtotal</div></td>
                 <td className="px-6 py-4 text-sm text-gray-600">:</td>
                 <td className="px-6 py-4 text-sm text-gray-600">{parseInt(selectedData.tampung_bayar.total) - (parseInt(selectedData.tampung_bayar.total) * parseInt(selectedData.tampung_bayar.diskon) / 100)}</td>
               </tr>
@@ -126,6 +111,17 @@ const ModalViewDetail = forwardRef((props, ref) => {
                 <td className="px-6 py-4 text-sm text-gray-600">{selectedData.tampung_bayar.kembali}</td>
               </tr>
             </Table>
+            <div className="w-full bg-gray-900 text-white text-md text-center p-3 rounded-md">
+              Transaksi Selesai
+            </div>
+            <div className="grid grid-cols-6">
+              <div className="col-span-3 px-6 py-4 text-sm text-gray-600">
+                Date : {selectedData.tgl_faktur}
+              </div>
+              <div className="col-span-3 px-6 py-4 text-sm text-gray-600 text-right">
+                Kasir : {selectedData.user.name}
+              </div>
+            </div>
           </div>
         </section>
       </div>

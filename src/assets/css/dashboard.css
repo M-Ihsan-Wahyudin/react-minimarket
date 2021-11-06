@@ -239,8 +239,8 @@ input[type=number] {
 /* ================= Header ================= */
 .aside-button {
   padding: 3px;
-  border: 2px solid rgba(var(--clr-lightblue), 1);
-  border-radius: 10px;
+  /* border: 2px solid rgba(var(--clr-lightblue), 1);
+  border-radius: 10px; */
 }
 .aside-button:hover {
   cursor: pointer;
@@ -256,7 +256,7 @@ input[type=number] {
   background-color: rgba(var(--clr-lightblue), 1);
 }
 .aside-toggle-icon:hover {
-  background-color: rgba(var(--clr-blue), 1);
+  background-color: rgba(var(--clr-blue), .8);
 }
 .header-right-side-wrapper {
   display: flex;
@@ -269,7 +269,6 @@ input[type=number] {
   padding: 3px;
   height: 45px;
   border: 2px solid rgba(var(--clr-lightblue), 1);
-  background-color: rgba(var(--clr-gray), 10%);
   border-radius: 10px;
 }
 .search-bar-icon {

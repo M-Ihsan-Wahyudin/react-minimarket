@@ -13,7 +13,9 @@ export default function Breadcrumb() {
   }
   return (
     <div className="header-menu-item md:xe-hidden">
-      <span className="xe-mx-1"><i className='bx bx-home xe-text-sm'></i> {location()}</span>
+      <span className="xe-mx-1 whitespace-nowrap text-sm text-gray-600">
+        <i className='bx bx-home whitespace-nowrap text-sm text-indigo-500'></i> {location()}
+      </span>
     </div>
   )
 }
