@@ -17,7 +17,7 @@ import Penjualan from "../views/transaksi/Penjualan/Penjualan"
 import ProtectedRoute from "./ProtectedRoute"
 import LaporanPenjualan from "../views/laporan/Penjualan/LaporanPenjualan"
 import LaporanPembelian from "../views/laporan/Pembelian/LaporanPembelian"
-import Home from "../views/dashboard/Home"
+import Home from "../views/dashboard/home"
 
 export default function Routes() {
   return (
