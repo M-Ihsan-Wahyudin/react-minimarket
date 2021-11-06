@@ -15,7 +15,7 @@ const ModalDelete = forwardRef((props, ref) => {
     const token = localStorage.getItem('jwt');
     axios({
       method: 'DELETE',
-      baseURL: `https://backend-minimarket.herokuapp.com/api/category/${dataId}`,
+      baseURL: `http://127.0.0.1:8000/api/category/${dataId}`,
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -77,4 +77,4 @@ const ModalDelete = forwardRef((props, ref) => {
   )
 })
 
-export default ModalDelete
+export default ModalDelete;

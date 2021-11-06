@@ -8,7 +8,7 @@ import TableComp from "../../component/table/table";
 import ModalCreate from "./Component/ModalCreate";
 import Pagination from "./Component/Pagination";
 import ModalUpdate from "./Component/ModalUpdate";
-import ModalDelete from "./Component/ModalDelete";
+import ModalDelete from "./Component/modalDelete";
 import client from "../../api/client";
 import Method from "../../Function/Method";
 import AdminLayout from "../../layouts/Admin";
