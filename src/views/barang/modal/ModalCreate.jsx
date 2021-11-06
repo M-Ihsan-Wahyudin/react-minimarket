@@ -16,7 +16,7 @@ const ModalCreate = forwardRef((props, ref) => {
     const token = localStorage.getItem('jwt');
     axios({
       method: 'POST',
-      baseURL: 'http://127.0.0.1:8000/api/product',
+      baseURL: 'https://backend-minimarket.herokuapp.com/api/product',
       data: formData,
       headers: {
         'Authorization': `Bearer ${token}`

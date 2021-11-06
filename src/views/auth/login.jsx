@@ -12,10 +12,10 @@ export default function Login() {
   const loginRequest = (e) => {
     e.preventDefault()
     const formData = new FormData(e.target)
-    axios.post('http://127.0.0.1:8000/api/login', formData)
+    axios.post('https://backend-minimarket.herokuapp.com/api/login', formData)
     .then(res => {
       localStorage.setItem("jwt", res.data.token);
-      history.push('/dashboard');
+      history.push('/home');
       showToast(res.data.message, 'success')
     })
     .catch(err => {

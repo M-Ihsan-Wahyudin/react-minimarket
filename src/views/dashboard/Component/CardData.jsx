@@ -1,29 +1,9 @@
-import { Fragment, useState, useEffect } from "react"
-import axios from 'axios'
+import { Fragment } from "react"
+import { useSelector } from "react-redux";
+import Method from "../../../Function/Method";
 
 export default function CardData() {
-  const [data, setData] = useState();
-  useEffect(() => {
-    if(typeof data === 'undefined') {
-      const token = localStorage.getItem('jwt');
-      axios({
-        method: 'GET',
-        baseURL: 'http://127.0.0.1:8000/api/report/inoutcome',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      .then(res => {
-        if(typeof data === 'undefined') {
-          setData(res.data)
-        }
-      })
-    }
-  })
-
-  const formatNumber = (number) => {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  }
+  const { data } = useSelector(state => state.laporan)
 
   return (
     <Fragment>
@@ -35,7 +15,7 @@ export default function CardData() {
         </div>
         <div className="col-span-4">
           <h2 className="text-2xl text-gray-700">Uang Masuk</h2>
-          <div className="text-xl text-gray-500">Rp. { typeof data !== 'undefined'  ? formatNumber(data.inCome) : 0}</div>
+          <div className="text-xl text-gray-500">Rp { data.length !== 0  ? Method.formatNumber(parseInt(data.inCome)) : 0}</div>
         </div>
       </div>
 
@@ -47,7 +27,7 @@ export default function CardData() {
         </div>
         <div className="col-span-4">
           <h2 className="text-2xl text-gray-700">Uang Keluar</h2>
-          <div className="text-xl text-gray-500">Rp. { typeof data !== 'undefined' ? formatNumber(data.outCome) : 0}</div>
+          <div className="text-xl text-gray-500">Rp { data.length !== 0 ? Method.formatNumber(parseInt(data.outCome)) : 0}</div>
         </div>
       </div>
 
@@ -59,7 +39,7 @@ export default function CardData() {
         </div>
         <div className="col-span-4">
           <h2 className="text-2xl text-gray-700">Profit</h2>
-          <div className="text-xl text-gray-500">Rp. { typeof data !== 'undefined' ? data.outCome - data.inCome >= 0 ? formatNumber(data.outCome - data.outCome) : 0 : 0}</div>
+          <div className="text-xl text-gray-500">Rp { data.length !== 0 ? data.outCome - data.inCome >= 0 ? Method.formatNumber(parseInt(data.outCome - data.outCome)) : 0 : 0}</div>
         </div>
       </div>
     </Fragment>

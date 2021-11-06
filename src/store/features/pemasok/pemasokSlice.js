@@ -6,7 +6,7 @@ export const pemasokSlice = createSlice({
     data: []
   },
   reducers:{
-    addData(state, action) {
+    addPemasok(state, action) {
       return {
         ...state,
         data: action.payload
@@ -15,6 +15,6 @@ export const pemasokSlice = createSlice({
   }
 })
 
-export const { addData } = pemasokSlice.actions
+export const { addPemasok } = pemasokSlice.actions
 
 export default pemasokSlice.reducer

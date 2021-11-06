@@ -9,7 +9,7 @@ export default function ProtectedRoute({ children, ...rest }) {
     let token = localStorage.getItem("jwt")
     axios({
       method: 'GET',
-      baseURL: 'http://127.0.0.1:8000/api/usercheck',
+      baseURL: 'https://backend-minimarket.herokuapp.com/api/usercheck',
       headers: {
         'Authorization': token
       }

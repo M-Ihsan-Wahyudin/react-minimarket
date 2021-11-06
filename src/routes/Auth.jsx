@@ -24,7 +24,7 @@ class Auth {
     if(token) {
       axios({
         method: 'GET',
-        baseURL: 'http://127.0.0.1:8000/api/usercheck',
+        baseURL: 'https://backend-minimarket.herokuapp.com/api/usercheck',
         headers: {
           'Authorization': `Bearer ${token}`
         }

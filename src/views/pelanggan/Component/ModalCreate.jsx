@@ -15,7 +15,7 @@ const ModalCreate = forwardRef((props, ref) => {
 
     axios({
       method: 'POST',
-      baseURL: 'http://127.0.0.1:8000/api/customer',
+      baseURL: 'https://backend-minimarket.herokuapp.com/api/customer',
       data: formData,
       headers: {
         'Authorization': `Bearer ${token}`

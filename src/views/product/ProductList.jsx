@@ -23,7 +23,7 @@ class ProductList extends React.Component {
     if(product.length === 0) {
       axios({
         method: 'GET',
-        baseURL: 'http://127.0.0.1:8000/api/product',
+        baseURL: 'https://backend-minimarket.herokuapp.com/api/product',
         headers: {
           'Authorization': 'Bearer 3|2mbhNYnsgw6ucKqZ4MiobU9YZh6UwH05xPVjdAPF'
         }

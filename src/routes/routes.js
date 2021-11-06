@@ -1,8 +1,7 @@
 import React from "react"
 import { Route, Switch } from "react-router-dom"
-
-// Component
-import AdminLayout from "../layouts/Admin"
+import Middleware from "./Middleware"
+import UnAuthorizationRoute from "./UnAuthorizationRoute"
 
 // Views
 import Login from "../views/auth/login"
@@ -18,23 +17,28 @@ import Penjualan from "../views/transaksi/Penjualan/Penjualan"
 import ProtectedRoute from "./ProtectedRoute"
 import LaporanPenjualan from "../views/laporan/Penjualan/LaporanPenjualan"
 import LaporanPembelian from "../views/laporan/Pembelian/LaporanPembelian"
+import Home from "../views/dashboard/Home"
 
 export default function Routes() {
   return (
     <Switch>
-      <Route exact path="/" component={Login} />
-      <AdminLayout>
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/barang" component={Barang} />
-        <Route exact path="/kategori" component={Kategori} />
-        <Route exact path="/pembelian" component={Pembelian} />
-        <Route exact path="/penjualan" component={Penjualan} />
-        <Route exact path="/pelanggan" component={Pelanggan} />
-        <Route exact path="/karyawan" component={Karyawan} />
-        <ProtectedRoute exact path="/pemasok" component={Pemasok} level="Operator" />
-        <Route exact path="/laporan/penjualan" component={LaporanPenjualan} />
-        <Route exact path="/laporan/pembelian" component={LaporanPembelian} />
-      </AdminLayout>
+      <UnAuthorizationRoute exact path="/" component={Login} />
+      <Middleware>
+        <Switch>
+          <Route exact path="/home" component={Home} />
+          <ProtectedRoute exact path="/dashboard" component={Dashboard} level="Administrator" />
+          <ProtectedRoute exact path="/pembelian" component={Pembelian} level="Operator" />
+          <ProtectedRoute exact path="/penjualan" component={Penjualan} level="Operator" />
+          <ProtectedRoute exact path="/barang" component={Barang} level="Entry Data Processing" />
+          <ProtectedRoute exact path="/kategori" component={Kategori} level="Entry Data Processing" />
+          <ProtectedRoute exact path="/pelanggan" component={Pelanggan} level="Entry Data Processing" />
+          <ProtectedRoute exact path="/pemasok" component={Pemasok} level="Entry Data Processing" />
+          <ProtectedRoute exact path="/karyawan" component={Karyawan} level="Administrator" />
+          <ProtectedRoute exact path="/laporan/penjualan" component={LaporanPenjualan} level="Administrator" />
+          <ProtectedRoute exact path="/laporan/pembelian" component={LaporanPembelian} level="Administrator" />
+          <Route path="/*" component={PageNotFound} />
+        </Switch>
+      </Middleware>
       <Route path="/*" component={PageNotFound} />
     </Switch>
   )

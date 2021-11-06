@@ -31,22 +31,35 @@ export default function Sidebar() {
             <div className="menu-group-title">
               <h3>Dashboard</h3>
             </div>
-            <NavLink to="/dashboard" className="menu-item">
+            <NavLink to="/home" className="menu-item">
               <div className="menu-icon">
-                <i className='bx bx-line-chart xe-text-md' ></i>
+                <i className='bx bx-home xe-text-md' ></i>
               </div>
               <div className="menu-title">
-                Statistics
+                Home
               </div>
             </NavLink>
+            {
+              userData.level === 'Administrator' ?
+                <NavLink to="/dashboard" className="menu-item">
+                  <div className="menu-icon">
+                    <i className='bx bx-line-chart xe-text-md' ></i>
+                  </div>
+                  <div className="menu-title">
+                    Statistics
+                  </div>
+                </NavLink>
+              : 
+                ''
+            }
           </div>
 
-          <div className="menu-group">
-            <div className="menu-group-title">
-              <h3>Transaction</h3>
-            </div>
-            {
-              userData.level === "Operator" ?
+          {
+            userData.level === "Operator" ?
+              <div className="menu-group">
+                <div className="menu-group-title">
+                  <h3>Transaction</h3>
+                </div>
                 <NavLink to="/penjualan" className="menu-item">
                   <div className="menu-icon">
                     <i className='bx bx-cart-alt xe-text-md' ></i>
@@ -55,86 +68,108 @@ export default function Sidebar() {
                     Penjualan Barang
                   </div>
                 </NavLink>
+                <NavLink to="/pembelian" className="menu-item">
+                  <div className="menu-icon">
+                    <i className='bx bxs-credit-card xe-text-md'></i>
+                  </div>
+                  <div className="menu-title">
+                    Pembelian Stok
+                  </div>
+                </NavLink>
+              </div>
+            :
+              ''
+          }
+
+          <div className="menu-group">
+            {
+              userData.level === 'Administrator' || userData.level === 'Entry Data Processing' ?
+                <div className="menu-group-title">
+                  <h3>Data</h3>
+                </div>
               :
                 ''
             }
-            <NavLink to="/pembelian" className="menu-item">
-              <div className="menu-icon">
-                <i className='bx bxs-credit-card xe-text-md'></i>
-              </div>
-              <div className="menu-title">
-                Pembelian Stok
-              </div>
-            </NavLink>
+            {
+              userData.level === 'Entry Data Processing' ?
+                <Fragment>
+                  <NavLink to="/pemasok" className="menu-item">
+                    <div className="menu-icon">
+                      <i className='bx bx-window-open xe-text-md'></i>
+                    </div>
+                    <div className="menu-title">
+                      Pemasok
+                    </div>
+                  </NavLink>
+                  <NavLink to="/barang" className="menu-item">
+                    <div className="menu-icon">
+                      <i className='bx bx-cube xe-text-md'></i>
+                    </div>
+                    <div className="menu-title">
+                      Barang
+                    </div>
+                  </NavLink>
+                  <NavLink to="/kategori" className="menu-item">
+                    <div className="menu-icon">
+                      <i className='bx bx-purchase-tag xe-text-md'></i>
+                    </div>
+                    <div className="menu-title">
+                      Kategori Barang
+                    </div>
+                  </NavLink>
+                  <NavLink to="/pelanggan" className="menu-item">
+                    <div className="menu-icon">
+                      <i className='bx bx-id-card xe-text-md'></i>
+                    </div>
+                    <div className="menu-title">
+                      Pelanggan
+                    </div>
+                  </NavLink>
+                </Fragment>
+              :
+                ''
+            }
+            {
+              userData.level === 'Administrator' ?
+                <NavLink to="/karyawan" className="menu-item">
+                  <div className="menu-icon">
+                    <i className='bx bxs-group xe-text-md'></i>
+                  </div>
+                  <div className="menu-title">
+                    Karyawan
+                  </div>
+                </NavLink>
+              : 
+                ''
+            }
           </div>
 
-          <div className="menu-group">
-            <div className="menu-group-title">
-              <h3>Data</h3>
-            </div>
-            <NavLink to="/pemasok" className="menu-item">
-              <div className="menu-icon">
-                <i className='bx bx-window-open xe-text-md'></i>
+          {
+            userData.level === 'Administrator' ?
+              <div className="menu-group">
+                <div className="menu-group-title">
+                  <h3>Report</h3>
+                </div>
+                <NavLink to="/laporan/penjualan" className="menu-item">
+                  <div className="menu-icon">
+                    <i className='bx bxs-report xe-text-md' ></i>
+                  </div>
+                  <div className="menu-title">
+                    Penjualan
+                  </div>
+                </NavLink>
+                <NavLink to="/laporan/pembelian" className="menu-item">
+                  <div className="menu-icon">
+                    <i className='bx bxs-credit-card xe-text-md'></i>
+                  </div>
+                  <div className="menu-title">
+                    Pembelian
+                  </div>
+                </NavLink>
               </div>
-              <div className="menu-title">
-                Pemasok
-              </div>
-            </NavLink>
-            <NavLink to="/barang" className="menu-item">
-              <div className="menu-icon">
-                <i className='bx bx-cube xe-text-md'></i>
-              </div>
-              <div className="menu-title">
-                Barang
-              </div>
-            </NavLink>
-            <NavLink to="/kategori" className="menu-item">
-              <div className="menu-icon">
-                <i className='bx bx-purchase-tag xe-text-md'></i>
-              </div>
-              <div className="menu-title">
-                Kategori Barang
-              </div>
-            </NavLink>
-            <NavLink to="/pelanggan" className="menu-item">
-              <div className="menu-icon">
-                <i className='bx bx-id-card xe-text-md'></i>
-              </div>
-              <div className="menu-title">
-                Pelanggan
-              </div>
-            </NavLink>
-            <NavLink to="/karyawan" className="menu-item">
-              <div className="menu-icon">
-                <i className='bx bxs-group xe-text-md'></i>
-              </div>
-              <div className="menu-title">
-                Karyawan
-              </div>
-            </NavLink>
-          </div>
-
-          <div className="menu-group">
-            <div className="menu-group-title">
-              <h3>Report</h3>
-            </div>
-            <NavLink to="/laporan/penjualan" className="menu-item">
-              <div className="menu-icon">
-                <i className='bx bxs-report xe-text-md' ></i>
-              </div>
-              <div className="menu-title">
-                Penjualan
-              </div>
-            </NavLink>
-            <NavLink to="/laporan/pembelian" className="menu-item">
-              <div className="menu-icon">
-                <i className='bx bxs-credit-card xe-text-md'></i>
-              </div>
-              <div className="menu-title">
-                Pembelian
-              </div>
-            </NavLink>
-          </div>
+            :
+              ''
+          }
           
           <div className="menu-card">
             <div className="card-title"><strong>Free Template</strong></div>

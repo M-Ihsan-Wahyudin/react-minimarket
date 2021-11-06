@@ -1,35 +1,16 @@
 import React, { Fragment } from 'react'
-import axios from 'axios'
+import { useSelector } from 'react-redux'
 import people1 from '../../../assets/images/people.jpg'
 
-class DataUserActivity extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dataUser: [],
-    }
-  }
+export default function DataUserActivity() {
+  const { data } = useSelector(state => state.laporan)
 
-  componentDidMount() {
-    const token = localStorage.getItem('jwt');
-    axios({
-      method: 'GET',
-      baseURL: 'http://127.0.0.1:8000/api/report/useractivity',
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    })
-    .then(res => {
-      this.setState({dataUser: res.data})
-    })
-  }
-
-  render() {
-    return (
-      <Fragment>
-        <div className="block text-red-400 text-lg mb-5">Aktivitas User</div>
-        {
-          this.state.dataUser.map((item, index) => {
+  return (
+    <Fragment>
+      <div className="block text-red-400 text-lg mb-5">Aktivitas User</div>
+      {
+        typeof data.userActivity !== 'undefined' ?
+          data.userActivity.map((item, index) => {
             return (
               <div className='grid grid-cols-6 py-1 my-1' key={index}>
                 <div className="col-span-1">
@@ -44,10 +25,9 @@ class DataUserActivity extends React.Component {
               </div>
             )
           })
-        }
-      </Fragment>
-    )
-  }
+        :
+          <Fragment/>
+      }
+    </Fragment>
+  )
 }
-
-export default DataUserActivity

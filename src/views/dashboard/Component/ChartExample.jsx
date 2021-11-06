@@ -63,7 +63,7 @@ class Chart extends Component {
     let token = localStorage.getItem('jwt');
     axios({
       method: 'GET',
-      baseURL: 'http://127.0.0.1:8000/api/report/sale/monthly',
+      baseURL: 'https://backend-minimarket.herokuapp.com/api/report/sale/monthly',
       headers: {
         'Authorization': `Bearer ${token}`
       }
