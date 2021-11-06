@@ -5,10 +5,10 @@ import { addProduct, addCategory } from "../../store/features/product/productSli
 
 // Component
 import TableComp from "../../component/table/table"
-import ModalCreate from "./modal/modalCreate"
-import ModalUpdate from "./modal/modalUpdate"
-import Pagination from "./pagination"
-import ModalDelete from "./modal/modalDelete"
+import ModalCreate from "./Component/ModalCreate"
+import ModalUpdate from "./Component/ModalUpdate"
+import Pagination from "./Component/Pagination"
+import ModalDelete from "./Component/ModalDelete"
 import client from "../../api/client"
 import AdminLayout from "../../layouts/Admin"
 

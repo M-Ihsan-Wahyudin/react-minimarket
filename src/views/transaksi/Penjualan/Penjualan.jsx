@@ -5,10 +5,10 @@ import ReactToPrint from "react-to-print"
 
 // Component
 import Table from "../../../component/table/table"
-import Pagination from "./component/pagination"
-import { Print } from "./component/print"
-import ModalSelectBarang from "./component/modalSelectBarang"
-import ModalSelectPelanggan from "./component/modalSelectPelanggan"
+import Pagination from "./Component/Pagination"
+import { Print } from "./Component/Print"
+import ModalSelectBarang from "./Component/ModalSelectBarang"
+import ModalSelectPelanggan from "./Component/ModalSelectPelanggan"
 
 // Function
 import Method from '../../../Function/Method'

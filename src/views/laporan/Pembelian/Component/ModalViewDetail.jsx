@@ -2,9 +2,9 @@ import { forwardRef ,useImperativeHandle, useState } from "react"
 import { useSelector } from "react-redux"
 // Component
 import ModalLarge from "../../../../component/modal/modalLarge"
-import Table from "../../rootComponent/table"
+import Table from "../../RootComponent/Table"
 import logoputih from "../../../../assets/images/logoputih.svg"
-import './font.css'
+import '../../RootComponent/font.css'
 
 const ModalViewDetail = forwardRef((props, ref) => {
 

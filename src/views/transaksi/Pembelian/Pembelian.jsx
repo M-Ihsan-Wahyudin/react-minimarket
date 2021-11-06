@@ -1,12 +1,12 @@
 import React from "react"
 import Swal from "sweetalert2"
 import { connect } from "react-redux"
-import ModalSelectBarang from "./modal/ModalSelectBarang"
-import Table from "../../component/table/table"
-import Pagination from "../pemasok/pagination"
-import client from "../../api/client"
-import Method from "../../Function/Method"
-import AdminLayout from "../../layouts/Admin"
+import ModalSelectBarang from "./Component/ModalSelectBarang"
+import Table from "../../../component/table/table"
+import Pagination from "../../pemasok/Component/Pagination"
+import client from "../../../api/client"
+import Method from "../../../Function/Method"
+import AdminLayout from "../../../layouts/Admin"
 
 class Pembelian extends React.Component {
   constructor(props) {

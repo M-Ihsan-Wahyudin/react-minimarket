@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import client from "../../../api/client";
 import Table from "../../../component/table/table"
-import Method from "../../../Function/method";
+import Method from "../../../Function/Method";
 import AdminLayout from "../../../layouts/Admin";
 import ModalViewDetail from "./Component/ModalViewDetail";
 import Pagination from "./Component/Pagination"

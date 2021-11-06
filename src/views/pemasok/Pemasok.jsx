@@ -5,10 +5,10 @@ import { addPemasok } from "../../store/features/pemasok/pemasokSlice"
 
 // Component
 import TableComp from "../../component/table/table"
-import ModalCreate from "./component/modalCreate"
-import ModalUpdate from "./component/modalUpdate"
-import Pagination from "./pagination"
-import ModalDelete from "./component/modalDelete"
+import ModalCreate from "./Component/ModalCreate"
+import ModalUpdate from "./Component/ModalUpdate"
+import Pagination from "./Component/Pagination"
+import ModalDelete from "./Component/ModalDelete"
 import AdminLayout from "../../layouts/Admin"
 import client from "../../api/client"
 

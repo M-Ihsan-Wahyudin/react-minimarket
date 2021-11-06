@@ -2,10 +2,10 @@ import { forwardRef ,useImperativeHandle, useState } from "react";
 import { useSelector } from "react-redux";
 // Component
 import ModalLarge from "../../../../component/modal/modalLarge";
-import Table from "../../rootComponent/table";
+import Table from "../../RootComponent/Table";
 import logoputih from "../../../../assets/images/logoputih.svg"
-import '../../pembelian/Component/font.css'
-import Method from "../../../../Function/method";
+import Method from "../../../../Function/Method";
+import '../../RootComponent/font.css'
 
 const ModalViewDetail = forwardRef((props, ref) => {
 

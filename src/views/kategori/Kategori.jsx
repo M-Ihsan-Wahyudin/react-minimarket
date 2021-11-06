@@ -5,10 +5,10 @@ import { addCategory } from "../../store/features/product/productSlice";
 import Swal from "sweetalert2";
 
 import TableComp from "../../component/table/table";
-import ModalCreate from "./component/modalCreate";
-import Pagination from "./component/pagination";
-import ModalUpdate from "./component/modalUpdate";
-import ModalDelete from "./component/modalDelete";
+import ModalCreate from "./Component/ModalCreate";
+import Pagination from "./Component/Pagination";
+import ModalUpdate from "./Component/ModalUpdate";
+import ModalDelete from "./Component/ModalDelete";
 import client from "../../api/client";
 import Method from "../../Function/Method";
 import AdminLayout from "../../layouts/Admin";

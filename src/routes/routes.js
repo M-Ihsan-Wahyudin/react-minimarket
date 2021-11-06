@@ -1,23 +1,23 @@
 import React from "react"
 import { Route, Switch } from "react-router-dom"
-import Middleware from "./middleware"
-import UnAuthorizationRoute from "./unAuthorizationRoute"
+import Middleware from "./Middleware"
+import UnAuthorizationRoute from "./UnAuthorizationRoute"
 
 // Views
-import Login from "../views/auth/login"
-import Dashboard from "../views/dashboard/dashboard"
+import Login from "../views/auth/Login"
+import Dashboard from "../views/dashboard/Dashboard"
 import PageNotFound from "../views/PageNotFound/PageNotFound"
 import Pemasok from "../views/pemasok/Pemasok"
 import Barang from "../views/barang/Barang"
-import Pembelian from "../views/transaksi/Pembelian"
+import Pembelian from "../views/transaksi/Pembelian/Pembelian"
 import Kategori from "../views/kategori/Kategori"
 import Pelanggan from "../views/pelanggan/Pelanggan"
 import Karyawan from "../views/karyawan/Karyawan"
-import Penjualan from "../views/transaksi/penjualan/Penjualan"
-import ProtectedRoute from "./protectedRoute"
+import Penjualan from "../views/transaksi/Penjualan/Penjualan"
+import ProtectedRoute from "./ProtectedRoute"
 import LaporanPenjualan from "../views/laporan/Penjualan/LaporanPenjualan"
-import LaporanPembelian from "../views/laporan/pembelian/LaporanPembelian"
-import Home from "../views/dashboard/home"
+import LaporanPembelian from "../views/laporan/Pembelian/LaporanPembelian"
+import Home from "../views/dashboard/Home"
 
 export default function Routes() {
   return (

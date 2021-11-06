@@ -1,8 +1,8 @@
 import { forwardRef ,useImperativeHandle, useState } from "react";
 import { useSelector } from "react-redux";
 // Component
-import ModalLarge from "../../../component/modal/modalLarge";
-import Table from "../../../component/table/table";
+import ModalLarge from "../../../../component/modal/modalLarge";
+import Table from "../../../../component/table/table";
 
 const ModalCreate = forwardRef((props, ref) => {
 
