@@ -9,7 +9,12 @@
 /coverage
 
 # production
-/build
+# /build
+/public
+/src
+/craco.config.js
+/package.json
+/tailwind.config.js
 
 # misc
 .DS_Store
