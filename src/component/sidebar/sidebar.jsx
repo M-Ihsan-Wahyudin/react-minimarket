@@ -172,9 +172,11 @@ export default function Sidebar() {
           }
           
           <div className="menu-card">
-            <div className="card-title"><strong>Free Template</strong></div>
+            <div className="card-title"><strong className="text-gray-600">Created By Ihsan</strong></div>
             <div className="card-body">
-              <button className="card-button xe-my-1">Docs</button>
+              <a href="https://github.com/M-Ihsan-Wahyudin" className="card-button xe-my-1 flex justify-center items-center w-10">
+                <i className='bx bxl-github text-2xl' ></i>
+              </a>
             </div>
           </div>
         </div>

@@ -11,6 +11,7 @@ import Pagination from "./Component/Pagination"
 import ModalDelete from "./Component/ModalDelete"
 import client from "../../api/client"
 import AdminLayout from "../../layouts/Admin"
+import ModalBarangKadaluarsa from "./Component/ModalBarangKadaluarsa"
 
 class Barang extends React.Component {
   constructor(props) {
@@ -19,20 +20,28 @@ class Barang extends React.Component {
       title: [
         'No', 'Nama Barang', 'Kategori', 'Harga Jual', 'Satuan', 'Stok'
       ],
+      titleExpiredTable: [
+        'No', 'Nama Barang', 'Tanggal Kadaluarsa', 'Harga', 'Satuan', 'Jumlah'
+      ]
     }
     this.modalCreateRef = React.createRef();
     this.modalUpdateRef = React.createRef();
     this.modalDeleteRef = React.createRef();
+    this.modalBarangKadaluarsaRef = React.createRef();
   }
 
   componentDidMount() {
     let product = this.props.product.data;
     let category = this.props.product.dataCategory;
+    let barangKadaluarsa = this.props.product.dataBarangKadaluarsa;
     if(product.length === 0) {
       client.getProduct();
     }
     if(category.length === 0) {
       client.getCategory();
+    }
+    if(barangKadaluarsa.length === 0) {
+      client.getBarangKadaluarsa();
     }
   }
 
@@ -104,6 +113,37 @@ class Barang extends React.Component {
               </TableComp>
               <Pagination/>
             </div>
+            <div className="col-span-12 bg-white shadow rounded-md p-5">
+              <h1 className="text-2xl text-indigo-500 font-bold">Barang Kadaluarsa</h1>
+            </div>
+            <div className="col-span-12 bg-white shadow rounded-md p-5">
+              <div className="mb-5">
+                <button 
+                  className="px-4 py-2 mr-2 bg-indigo-500 text-white rounded-md focus:outline-none focus:ring hover:bg-indigo-600" 
+                  onClick={() => this.modalBarangKadaluarsaRef.current.setOpenModal(true)} 
+                  >
+                    Masukan Barang
+                  </button>
+                <input type="search" className="float-right px-3 py-2 rounded-md border border-indigo-500 focus:outline-none focus:ring" placeholder="Search" />
+              </div>
+              <TableComp title={this.state.titleExpiredTable} srOnly={false}> 
+                {
+                  this.props.product.dataBarangKadaluarsa.map((item, index) => {
+                    return (
+                      <tr key={item.id} className="hover:bg-gray-200">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{index + 1}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.nama_barang}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.tgl_kadaluarsa}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.harga}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.satuan}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.jumlah}</td>
+                      </tr>
+                    )
+                  })
+                }
+              </TableComp>
+              <Pagination/>
+            </div>
           </div>
     
           <ModalCreate 
@@ -118,6 +158,11 @@ class Barang extends React.Component {
           />
           <ModalDelete
             ref={this.modalDeleteRef} 
+            onSuccess={(...value) => this.handleSuccess(value)} 
+            onError={(...value) => this.handleError(value)} 
+          />
+          <ModalBarangKadaluarsa
+            ref={this.modalBarangKadaluarsaRef} 
             onSuccess={(...value) => this.handleSuccess(value)} 
             onError={(...value) => this.handleError(value)} 
           />

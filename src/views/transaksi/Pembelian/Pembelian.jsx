@@ -7,6 +7,7 @@ import Pagination from "../../pemasok/Component/Pagination"
 import client from "../../../api/client"
 import Method from "../../../Function/Method"
 import AdminLayout from "../../../layouts/Admin"
+import ModalSelectPemasok from "./Component/ModalSelectPemasok"
 
 class Pembelian extends React.Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class Pembelian extends React.Component {
       selectedBarang: [],
       selectedPemasok: {
         id: '',
+        nama_pemasok: '',
         no_telp: '',
         kota: '',
         alamat: '',
@@ -30,6 +32,7 @@ class Pembelian extends React.Component {
     }
 
     this.modalSelectProductRef = React.createRef();
+    this.modalSelectPemasokRef = React.createRef();
   }
 
   componentDidMount() {
@@ -88,8 +91,8 @@ class Pembelian extends React.Component {
     }, 10);
   }
 
-  handleSelectPemasok(e) {
-    const selectedPemasok = this.props.pemasok.find(x => x.id === parseInt(e.target.value))
+  handleSelectPemasok(id) {
+    const selectedPemasok = this.props.pemasok.find(x => x.id === id)
     this.setState({
       selectedPemasok: selectedPemasok
     })
@@ -201,6 +204,7 @@ class Pembelian extends React.Component {
       selectedBarang: [],
       selectedPemasok: {
         id: '',
+        nama_pemasok: '',
         no_telp: '',
         kota: '',
         alamat: '',
@@ -223,8 +227,10 @@ class Pembelian extends React.Component {
                 <h1 className="text-2xl text-indigo-500 font-bold">Transaksi Pembelian</h1>
               </div>
               <div className="col-span-8 bg-white shadow rounded-md p-5 grid grid-cols-6 gap-3">
-                <div className="col-span-3">
-                  <label htmlFor="pemasok_id">Pemasok</label>
+                <div className="col-span-6">
+                  <button type="button" onClick={() => this.modalSelectPemasokRef.current.setOpenModal(true)} className="px-4 py-2 bg-indigo-500 rounded-md text-white focus:outline-none focus:ring">Pilih Pemasok</button>
+                  <input type="hidden" name="pemasok_id" value={this.state.selectedPemasok.id}/>
+                  {/* <label htmlFor="pemasok_id">Pemasok</label>
                   <select 
                     name="pemasok_id" 
                     id="pemasok_id" 
@@ -240,7 +246,11 @@ class Pembelian extends React.Component {
                         )
                       })
                     }
-                  </select>
+                  </select> */}
+                </div>
+                <div className="col-span-3">
+                  <label htmlFor="nama_pemasok">Nama Pemasok</label>
+                  <input type="text" name="nama_pemasok" id="nama_pemasok" className="w-full px-3 py-2 border rounded-md focus:outline-none border-indigo-500 bg-gray-50" disabled value={this.state.selectedPemasok.nama_pemasok}/>
                 </div>
                 <div className="col-span-3">
                   <label htmlFor="tanggal_masuk">Tanggal Masuk</label>
@@ -272,6 +282,7 @@ class Pembelian extends React.Component {
                   <label htmlFor="totalHarga">Total Harga</label>
                   <input type="text" name="totalHarga" id="totalHarga" className={`w-full px-3 py-2 border rounded-md focus:outline-none border-indigo-500 bg-gray-50`} value={this.state.totalHarga} disabled />
                 </div>
+                <div className="col-span-6 py-4"></div>
                 <div className="col-span-6 py-4"></div>
                 <div className="col-span-6">
                   <button type="submit" className="float-right px-4 py-2 rounded-md text-white bg-indigo-500 focus:outline-none focus:ring">Save</button>
@@ -333,11 +344,15 @@ class Pembelian extends React.Component {
           </form>
     
           <ModalSelectBarang
-            ref={this.modalSelectProductRef} 
+            ref={this.modalSelectProductRef}
             onSuccess={(...value) => this.handleSuccess(value)} 
             onError={(...value) => this.handleError(value)}
 
             onSelectBarang={(id) => this.handleSelectBarang(id) }
+          />
+          <ModalSelectPemasok
+            ref={this.modalSelectPemasokRef}
+            onSelectPelangan={(id) => this.handleSelectPemasok(id)}
           />
         </main>
       </AdminLayout>

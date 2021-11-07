@@ -3,7 +3,7 @@ import store from "../store";
 import { addLaporan, addLaporanPembelian, addLaporanPenjualan } from "../store/features/laporan/laporanSlice";
 import { addPelanggan } from "../store/features/pelanggan/pelangganSlice";
 import { addPemasok } from "../store/features/pemasok/pemasokSlice";
-import { addCategory, addProduct } from "../store/features/product/productSlice";
+import { addBarangKadaluarsa, addCategory, addProduct } from "../store/features/product/productSlice";
 
 class client {
   token() {
@@ -69,6 +69,14 @@ class client {
     })
   }
 
+  getBarangKadaluarsa() {
+    this.clientRequest('GET', 'https://backend-minimarket.herokuapp.com/api/expired/product')
+    .then(res => {
+      console.info(res);
+      store.dispatch(addBarangKadaluarsa(res.data))
+    })
+  }
+
   postCategory(data, callback) {
     const obj = {
       name: 'aku',
@@ -93,6 +101,16 @@ class client {
 
   postPembelian(data, callback) {
     this.clientRequest('POST', 'https://backend-minimarket.herokuapp.com/api/transaction/purchase', data)
+    .then(res => {
+      callback(true, res)
+    })
+    .catch(err => {
+      callback(false, err)
+    })
+  }
+
+  postBarangKadaluarsa(data, callback) {
+    this.clientRequest('POST', 'https://backend-minimarket.herokuapp.com/api/expired/product', data)
     .then(res => {
       callback(true, res)
     })
